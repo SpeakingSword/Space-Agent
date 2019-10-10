@@ -1,0 +1,200 @@
+fileFormatVersion: 2
+guid: 20b2cc21190e8d946a8557f5dd3d0d96
+timeCreated: 1474791195
+licenseType: Store
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: NormalGirl_Death_1_0
+    21300002: NormalGirl_Death_1_1
+    21300004: NormalGirl_Death_1_2
+    21300006: NormalGirl_Death_1_3
+    21300008: NormalGirl_Death_1_4
+    21300010: NormalGirl_Death_1_5
+    21300012: NormalGirl_Death_1_6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 1
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 100
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 1
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: NormalGirl_Death_1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6, y: 22}
+        - {x: -5, y: 22}
+        - {x: -15, y: 0}
+        - {x: -17, y: -26}
+        - {x: -17, y: -32}
+        - {x: 20, y: -32}
+        - {x: 20, y: 1}
+        - {x: 12, y: 15}
+    - name: NormalGirl_Death_1_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 22}
+        - {x: -16, y: 12}
+        - {x: -16, y: -32}
+        - {x: 18, y: -32}
+        - {x: 18, y: 7}
+        - {x: 13, y: 22}
+    - name: NormalGirl_Death_1_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 22}
+        - {x: -15, y: 6}
+        - {x: -15, y: -32}
+        - {x: 18, y: -32}
+        - {x: 18, y: 3}
+        - {x: 1, y: 22}
+    - name: NormalGirl_Death_1_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: -1}
+        - {x: 14, y: 0}
+        - {x: 17, y: 1}
+        - {x: 15, y: 9}
+        - {x: -2, y: 18}
+        - {x: -17, y: 18}
+        - {x: -17, y: -2}
+        - {x: -10, y: -30}
+        - {x: -8, y: -32}
+        - {x: 21, y: -32}
+        - {x: 21, y: -21}
+        - {x: 10, y: -3}
+    - name: NormalGirl_Death_1_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 13, y: 3}
+        - {x: 9, y: 8}
+        - {x: 6, y: 8}
+        - {x: -23, y: 7}
+        - {x: -23, y: -5}
+        - {x: -13, y: -30}
+        - {x: -6, y: -32}
+        - {x: 27, y: -32}
+        - {x: 30, y: -28}
+        - {x: 30, y: -24}
+        - {x: 29, y: -21}
+    - name: NormalGirl_Death_1_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 10, y: -1}
+        - {x: -5, y: -1}
+        - {x: -23, y: -6}
+        - {x: -27, y: -14}
+        - {x: -27, y: -19}
+        - {x: -19, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: -21}
+        - {x: 15, y: -4}
+    - name: NormalGirl_Death_1_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15, y: -16}
+        - {x: -21, y: -17}
+        - {x: -27, y: -24}
+        - {x: -27, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: -22}
+        - {x: 20, y: -16}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

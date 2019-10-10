@@ -1,0 +1,302 @@
+fileFormatVersion: 2
+guid: 775c537a1779d20408ccd7b7c59b2119
+timeCreated: 1474649506
+licenseType: Store
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Swat_PistolAim_1_0
+    21300002: Swat_PistolAim_1_1
+    21300004: Swat_PistolAim_1_2
+    21300006: Swat_PistolAim_1_3
+    21300008: Swat_PistolAim_1_4
+    21300010: Swat_PistolAim_1_5
+    21300012: Swat_PistolAim_1_6
+    21300014: Swat_PistolAim_1_7
+    21300016: Swat_PistolAim_1_8
+    21300018: Swat_PistolAim_1_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 1
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 100
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 1
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Swat_PistolAim_1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: -31}
+        - {x: 17, y: -31}
+        - {x: 20, y: -19}
+        - {x: 20, y: 2}
+        - {x: 10, y: 23}
+        - {x: 2, y: 23}
+        - {x: -7, y: 15}
+        - {x: -20, y: -23}
+        - {x: -20, y: -31}
+        - {x: -13, y: -31}
+        - {x: -11, y: -29}
+        - {x: -4, y: -15}
+        - {x: 4, y: -30}
+    - name: Swat_PistolAim_1_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: -31}
+        - {x: 16, y: -31}
+        - {x: 24, y: -18}
+        - {x: 24, y: 8}
+        - {x: 16, y: 22}
+        - {x: 2, y: 22}
+        - {x: -8, y: 12}
+        - {x: -20, y: -20}
+        - {x: -20, y: -29}
+        - {x: -19, y: -31}
+        - {x: -13, y: -31}
+        - {x: -11, y: -29}
+        - {x: -4, y: -15}
+        - {x: 4, y: -30}
+    - name: Swat_PistolAim_1_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 23, y: -28}
+        - {x: 23, y: 5}
+        - {x: 19, y: 22}
+        - {x: -4, y: 22}
+        - {x: -20, y: -12}
+        - {x: -20, y: -31}
+        - {x: -12, y: -31}
+        - {x: -8, y: -24}
+        - {x: 4, y: -31}
+        - {x: 17, y: -31}
+    - name: Swat_PistolAim_1_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 28, y: -12}
+        - {x: 28, y: 9}
+        - {x: 14, y: 22}
+        - {x: 1, y: 22}
+        - {x: -9, y: 16}
+        - {x: -20, y: -19}
+        - {x: -20, y: -29}
+        - {x: -19, y: -31}
+        - {x: -12, y: -31}
+        - {x: -8, y: -24}
+        - {x: 3, y: -31}
+        - {x: 23, y: -31}
+    - name: Swat_PistolAim_1_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16, y: -31}
+        - {x: 16, y: -28}
+        - {x: 12, y: -12}
+        - {x: 29, y: 5}
+        - {x: 29, y: 14}
+        - {x: 28, y: 16}
+        - {x: 16, y: 22}
+        - {x: 1, y: 22}
+        - {x: -9, y: 16}
+        - {x: -20, y: -19}
+        - {x: -20, y: -29}
+        - {x: -19, y: -31}
+        - {x: -12, y: -31}
+        - {x: -8, y: -24}
+        - {x: 4, y: -30}
+        - {x: 8, y: -31}
+    - name: Swat_PistolAim_1_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17, y: -31}
+        - {x: 18, y: -30}
+        - {x: 27, y: 8}
+        - {x: 27, y: 24}
+        - {x: -4, y: 24}
+        - {x: -20, y: -3}
+        - {x: -20, y: -31}
+        - {x: -12, y: -31}
+        - {x: -8, y: -24}
+        - {x: 4, y: -30}
+        - {x: 8, y: -31}
+    - name: Swat_PistolAim_1_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16, y: -31}
+        - {x: 16, y: -29}
+        - {x: 22, y: -8}
+        - {x: 24, y: 8}
+        - {x: 24, y: 30}
+        - {x: 4, y: 30}
+        - {x: -1, y: 27}
+        - {x: -20, y: -11}
+        - {x: -20, y: -31}
+        - {x: -12, y: -31}
+        - {x: -8, y: -24}
+        - {x: 4, y: -30}
+        - {x: 8, y: -31}
+    - name: Swat_PistolAim_1_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6, y: -31}
+        - {x: 19, y: -31}
+        - {x: 22, y: -25}
+        - {x: 22, y: 5}
+        - {x: 12, y: 22}
+        - {x: 2, y: 22}
+        - {x: -8, y: 12}
+        - {x: -20, y: -20}
+        - {x: -20, y: -29}
+        - {x: -19, y: -31}
+        - {x: -13, y: -31}
+        - {x: -11, y: -29}
+        - {x: -4, y: -15}
+        - {x: 4, y: -30}
+    - name: Swat_PistolAim_1_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1, y: 23}
+        - {x: -8, y: 16}
+        - {x: -20, y: -19}
+        - {x: -20, y: -29}
+        - {x: -19, y: -31}
+        - {x: 19, y: -31}
+        - {x: 19, y: 23}
+    - name: Swat_PistolAim_1_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16, y: -31}
+        - {x: 16, y: -28}
+        - {x: 17, y: -23}
+        - {x: 17, y: 0}
+        - {x: 9, y: 23}
+        - {x: 2, y: 23}
+        - {x: -13, y: 8}
+        - {x: -16, y: -2}
+        - {x: -20, y: -17}
+        - {x: -20, y: -30}
+        - {x: -19, y: -31}
+        - {x: -12, y: -31}
+        - {x: -8, y: -24}
+        - {x: 4, y: -30}
+        - {x: 8, y: -31}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,383 @@
+fileFormatVersion: 2
+guid: 9a8677533d58a3e4983e9168fd6af21a
+timeCreated: 1474302346
+licenseType: Store
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Doctor_Melee_1_0
+    21300002: Doctor_Melee_1_1
+    21300004: Doctor_Melee_1_2
+    21300006: Doctor_Melee_1_3
+    21300008: Doctor_Melee_1_4
+    21300010: Doctor_Melee_1_5
+    21300012: Doctor_Melee_1_6
+    21300014: Doctor_Melee_1_7
+    21300016: Doctor_Melee_1_8
+    21300018: Doctor_Melee_1_9
+    21300020: Doctor_Melee_2_0
+    21300022: Doctor_Melee_2_1
+    21300024: Doctor_Melee_2_2
+    21300026: Doctor_Melee_2_3
+    21300028: Doctor_Melee_2_4
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 1
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 100
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 1
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Doctor_Melee_1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16, y: -31}
+        - {x: 24, y: -7}
+        - {x: 24, y: 16}
+        - {x: 23, y: 17}
+        - {x: -7, y: 17}
+        - {x: -21, y: 3}
+        - {x: -21, y: -32}
+        - {x: -12, y: -32}
+        - {x: -12, y: -31}
+        - {x: -4, y: -32}
+        - {x: 15, y: -32}
+    - name: Doctor_Melee_1_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1, y: 15}
+        - {x: -22, y: -13}
+        - {x: -22, y: -32}
+        - {x: 16, y: -32}
+        - {x: 22, y: -4}
+        - {x: 22, y: 10}
+        - {x: 16, y: 15}
+    - name: Doctor_Melee_1_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1, y: 14}
+        - {x: -22, y: -11}
+        - {x: -22, y: -32}
+        - {x: 21, y: -32}
+        - {x: 21, y: 10}
+        - {x: 15, y: 14}
+    - name: Doctor_Melee_1_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 28, y: -14}
+        - {x: 28, y: 5}
+        - {x: 27, y: 6}
+        - {x: 17, y: 14}
+        - {x: 8, y: 14}
+        - {x: 2, y: 11}
+        - {x: -2, y: 7}
+        - {x: -22, y: -25}
+        - {x: -22, y: -30}
+        - {x: -20, y: -32}
+        - {x: -14, y: -32}
+        - {x: -13, y: -31}
+        - {x: -3, y: -32}
+        - {x: 19, y: -32}
+    - name: Doctor_Melee_1_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19, y: 14}
+        - {x: 2, y: 14}
+        - {x: -22, y: -19}
+        - {x: -22, y: -32}
+        - {x: 24, y: -32}
+        - {x: 29, y: -12}
+        - {x: 29, y: 9}
+        - {x: 28, y: 10}
+    - name: Doctor_Melee_1_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 11}
+        - {x: 18, y: 14}
+        - {x: -1, y: 14}
+        - {x: -22, y: -18}
+        - {x: -22, y: -32}
+        - {x: 22, y: -32}
+    - name: Doctor_Melee_1_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1, y: 14}
+        - {x: -13, y: 5}
+        - {x: -22, y: -22}
+        - {x: -22, y: -32}
+        - {x: 27, y: -32}
+        - {x: 31, y: -12}
+        - {x: 31, y: 10}
+        - {x: 16, y: 14}
+    - name: Doctor_Melee_1_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1, y: 15}
+        - {x: -13, y: 5}
+        - {x: -22, y: -26}
+        - {x: -22, y: -31}
+        - {x: -20, y: -32}
+        - {x: -15, y: -32}
+        - {x: -13, y: -30}
+        - {x: -4, y: -32}
+        - {x: 18, y: -32}
+        - {x: 30, y: -14}
+        - {x: 30, y: 13}
+        - {x: 26, y: 15}
+    - name: Doctor_Melee_1_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15, y: -32}
+        - {x: 17, y: -28}
+        - {x: 21, y: -12}
+        - {x: 21, y: 16}
+        - {x: -3, y: 16}
+        - {x: -22, y: -12}
+        - {x: -22, y: -32}
+        - {x: -14, y: -32}
+        - {x: -12, y: -30}
+        - {x: -12, y: -29}
+        - {x: -4, y: -32}
+    - name: Doctor_Melee_1_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 26}
+        - {x: -19, y: 10}
+        - {x: -19, y: -30}
+        - {x: 18, y: -30}
+        - {x: 18, y: 25}
+        - {x: 17, y: 26}
+    - name: Doctor_Melee_2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 28, y: 14}
+        - {x: 10, y: 7}
+        - {x: 7, y: 5}
+        - {x: 12, y: 10}
+        - {x: 12, y: 14}
+        - {x: 2, y: 24}
+        - {x: -9, y: 24}
+        - {x: -18, y: 15}
+        - {x: -18, y: -6}
+        - {x: -14, y: -15}
+        - {x: 7, y: -15}
+        - {x: 19, y: -11}
+        - {x: 32, y: 8}
+        - {x: 32, y: 14}
+    - name: Doctor_Melee_2_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 31, y: -8}
+        - {x: 29, y: -5}
+        - {x: 16, y: 4}
+        - {x: 13, y: 4}
+        - {x: 12, y: 3}
+        - {x: 8, y: 3}
+        - {x: 10, y: 3}
+        - {x: 15, y: 7}
+        - {x: 17, y: 18}
+        - {x: 6, y: 22}
+        - {x: -6, y: 22}
+        - {x: -16, y: 7}
+        - {x: -16, y: -14}
+        - {x: -5, y: -26}
+        - {x: 2, y: -26}
+        - {x: 3, y: -25}
+        - {x: 4, y: -19}
+        - {x: 23, y: -14}
+        - {x: 31, y: -12}
+    - name: Doctor_Melee_2_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 20, y: 18}
+        - {x: -6, y: 18}
+        - {x: -17, y: -19}
+        - {x: -17, y: -32}
+        - {x: -11, y: -32}
+        - {x: -8, y: -29}
+        - {x: 12, y: -31}
+        - {x: 20, y: -31}
+    - name: Doctor_Melee_2_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15, y: 15}
+        - {x: 4, y: 15}
+        - {x: -8, y: 3}
+        - {x: -25, y: -20}
+        - {x: -25, y: -32}
+        - {x: 22, y: -32}
+        - {x: 22, y: 10}
+        - {x: 20, y: 13}
+    - name: Doctor_Melee_2_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15, y: 15}
+        - {x: 4, y: 15}
+        - {x: -8, y: 3}
+        - {x: -25, y: -20}
+        - {x: -25, y: -32}
+        - {x: 22, y: -32}
+        - {x: 22, y: 10}
+        - {x: 20, y: 13}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,384 @@
+fileFormatVersion: 2
+guid: e0de0b3a43e62b743accc1c975603d9d
+timeCreated: 1474652607
+licenseType: Store
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: AdventureGirl_Melee_1_0
+    21300002: AdventureGirl_Melee_1_1
+    21300004: AdventureGirl_Melee_1_2
+    21300006: AdventureGirl_Melee_1_3
+    21300008: AdventureGirl_Melee_1_4
+    21300010: AdventureGirl_Melee_1_5
+    21300012: AdventureGirl_Melee_1_6
+    21300014: AdventureGirl_Melee_1_7
+    21300016: AdventureGirl_Melee_1_8
+    21300018: AdventureGirl_Melee_1_9
+    21300020: AdventureGirl_Melee_2_0
+    21300022: AdventureGirl_Melee_2_1
+    21300024: AdventureGirl_Melee_2_2
+    21300026: AdventureGirl_Melee_2_3
+    21300028: AdventureGirl_Melee_2_4
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 1
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 100
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 1
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: AdventureGirl_Melee_1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 18, y: 6}
+        - {x: 16, y: 5}
+        - {x: 16, y: 15}
+        - {x: 14, y: 17}
+        - {x: -3, y: 17}
+        - {x: -19, y: 10}
+        - {x: -21, y: -7}
+        - {x: -21, y: -32}
+        - {x: 23, y: -32}
+        - {x: 23, y: 4}
+        - {x: 22, y: 7}
+    - name: AdventureGirl_Melee_1_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 15}
+        - {x: -22, y: -21}
+        - {x: -22, y: -30}
+        - {x: -21, y: -32}
+        - {x: 18, y: -32}
+        - {x: 21, y: -25}
+        - {x: 21, y: 13}
+        - {x: 16, y: 15}
+    - name: AdventureGirl_Melee_1_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 20, y: -7}
+        - {x: 20, y: 15}
+        - {x: 3, y: 15}
+        - {x: -9, y: 11}
+        - {x: -22, y: -23}
+        - {x: -22, y: -31}
+        - {x: -21, y: -32}
+        - {x: -14, y: -32}
+        - {x: -13, y: -31}
+        - {x: -11, y: -32}
+        - {x: 17, y: -32}
+    - name: AdventureGirl_Melee_1_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3, y: 15}
+        - {x: -22, y: -26}
+        - {x: -22, y: -30}
+        - {x: -20, y: -32}
+        - {x: 24, y: -32}
+        - {x: 27, y: -16}
+        - {x: 27, y: 9}
+        - {x: 18, y: 15}
+    - name: AdventureGirl_Melee_1_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 15}
+        - {x: -8, y: 10}
+        - {x: -22, y: -21}
+        - {x: -22, y: -31}
+        - {x: -21, y: -32}
+        - {x: 27, y: -32}
+        - {x: 28, y: -29}
+        - {x: 28, y: 12}
+        - {x: 26, y: 15}
+    - name: AdventureGirl_Melee_1_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21, y: -17}
+        - {x: 21, y: 13}
+        - {x: 14, y: 6}
+        - {x: 16, y: 9}
+        - {x: 16, y: 11}
+        - {x: 14, y: 15}
+        - {x: 3, y: 15}
+        - {x: -6, y: 0}
+        - {x: -22, y: -23}
+        - {x: -22, y: -30}
+        - {x: -21, y: -32}
+        - {x: 17, y: -32}
+    - name: AdventureGirl_Melee_1_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 15}
+        - {x: -22, y: -4}
+        - {x: -22, y: -32}
+        - {x: 23, y: -32}
+        - {x: 30, y: -16}
+        - {x: 30, y: 11}
+        - {x: 26, y: 15}
+    - name: AdventureGirl_Melee_1_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 15}
+        - {x: -22, y: -13}
+        - {x: -22, y: -32}
+        - {x: 25, y: -32}
+        - {x: 29, y: -20}
+        - {x: 29, y: 14}
+        - {x: 26, y: 15}
+    - name: AdventureGirl_Melee_1_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21, y: -32}
+        - {x: 21, y: 15}
+        - {x: 15, y: 16}
+        - {x: 1, y: 16}
+        - {x: -10, y: 3}
+        - {x: -22, y: -26}
+        - {x: -22, y: -31}
+        - {x: -19, y: -32}
+        - {x: -14, y: -32}
+        - {x: -12, y: -30}
+        - {x: -12, y: -29}
+        - {x: -3, y: -32}
+    - name: AdventureGirl_Melee_1_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: -30}
+        - {x: -1, y: -30}
+        - {x: 18, y: -26}
+        - {x: 18, y: 10}
+        - {x: 16, y: 26}
+        - {x: -4, y: 26}
+        - {x: -18, y: 9}
+    - name: AdventureGirl_Melee_2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19, y: 24}
+        - {x: -10, y: 24}
+        - {x: -14, y: 22}
+        - {x: -18, y: 7}
+        - {x: -18, y: 4}
+        - {x: -15, y: 2}
+        - {x: -14, y: 2}
+        - {x: -9, y: -14}
+        - {x: -6, y: -15}
+        - {x: 18, y: -15}
+        - {x: 32, y: 6}
+        - {x: 32, y: 21}
+    - name: AdventureGirl_Melee_2_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: 23}
+        - {x: -6, y: 23}
+        - {x: -15, y: 12}
+        - {x: -15, y: -10}
+        - {x: -8, y: -26}
+        - {x: 2, y: -26}
+        - {x: 3, y: -24}
+        - {x: 30, y: -19}
+        - {x: 30, y: -4}
+        - {x: 13, y: 17}
+    - name: AdventureGirl_Melee_2_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15, y: -6}
+        - {x: 10, y: -3}
+        - {x: 6, y: -2}
+        - {x: 10, y: -3}
+        - {x: 12, y: -3}
+        - {x: 16, y: -1}
+        - {x: 20, y: 7}
+        - {x: 20, y: 14}
+        - {x: 17, y: 19}
+        - {x: 2, y: 19}
+        - {x: -8, y: 15}
+        - {x: -17, y: -20}
+        - {x: -17, y: -32}
+        - {x: 15, y: -32}
+        - {x: 20, y: -30}
+        - {x: 20, y: -18}
+        - {x: 17, y: -8}
+    - name: AdventureGirl_Melee_2_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3, y: 15}
+        - {x: -5, y: 4}
+        - {x: -25, y: -25}
+        - {x: -25, y: -32}
+        - {x: 18, y: -32}
+        - {x: 21, y: -13}
+        - {x: 21, y: 11}
+        - {x: 15, y: 15}
+    - name: AdventureGirl_Melee_2_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3, y: 15}
+        - {x: -5, y: 4}
+        - {x: -25, y: -25}
+        - {x: -25, y: -32}
+        - {x: 18, y: -32}
+        - {x: 21, y: -13}
+        - {x: 21, y: 11}
+        - {x: 15, y: 15}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

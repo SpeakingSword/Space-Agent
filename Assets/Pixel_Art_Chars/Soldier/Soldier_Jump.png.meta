@@ -1,0 +1,215 @@
+fileFormatVersion: 2
+guid: 5cbb1013bd92d8e4eb5dab0931dda766
+timeCreated: 1473867679
+licenseType: Store
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Soldier_Jump_1_0
+    21300002: Soldier_Jump_1_1
+    21300004: Soldier_Jump_1_2
+    21300006: Soldier_Jump_1_3
+    21300008: Soldier_Jump_1_4
+    21300010: Soldier_Jump_1_5
+    21300012: Soldier_Jump_1_6
+    21300014: Soldier_Jump_1_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 1
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 100
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 1
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Soldier_Jump_1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1, y: 20}
+        - {x: -10, y: 3}
+        - {x: -10, y: -3}
+        - {x: -12, y: -12}
+        - {x: -12, y: -32}
+        - {x: 15, y: -32}
+        - {x: 15, y: 20}
+    - name: Soldier_Jump_1_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1, y: 16}
+        - {x: -12, y: 2}
+        - {x: -12, y: -32}
+        - {x: 15, y: -32}
+        - {x: 15, y: 16}
+    - name: Soldier_Jump_1_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 21}
+        - {x: -8, y: 20}
+        - {x: -11, y: 12}
+        - {x: -11, y: -27}
+        - {x: 0, y: -32}
+        - {x: 8, y: -32}
+        - {x: 18, y: -11}
+        - {x: 18, y: 6}
+        - {x: 13, y: 21}
+    - name: Soldier_Jump_1_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: -12}
+        - {x: -12, y: -29}
+        - {x: -7, y: -32}
+        - {x: -3, y: -32}
+        - {x: 17, y: -24}
+        - {x: 17, y: 26}
+        - {x: -4, y: 26}
+        - {x: -13, y: 13}
+    - name: Soldier_Jump_1_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 26}
+        - {x: -13, y: 11}
+        - {x: -13, y: -18}
+        - {x: -12, y: -31}
+        - {x: -12, y: -32}
+        - {x: 3, y: -32}
+        - {x: 17, y: -22}
+        - {x: 17, y: 26}
+    - name: Soldier_Jump_1_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1, y: 23}
+        - {x: -11, y: 18}
+        - {x: -11, y: -32}
+        - {x: 13, y: -32}
+        - {x: 21, y: -5}
+        - {x: 21, y: 22}
+        - {x: 19, y: 23}
+    - name: Soldier_Jump_1_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11, y: 23}
+        - {x: -12, y: 14}
+        - {x: -12, y: 2}
+        - {x: -6, y: -23}
+        - {x: 3, y: -31}
+        - {x: 4, y: -32}
+        - {x: 13, y: -32}
+        - {x: 22, y: -20}
+        - {x: 22, y: 23}
+    - name: Soldier_Jump_1_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19, y: 24}
+        - {x: 10, y: 24}
+        - {x: -9, y: 18}
+        - {x: -12, y: 16}
+        - {x: -12, y: -11}
+        - {x: -2, y: -32}
+        - {x: 16, y: -32}
+        - {x: 22, y: -12}
+        - {x: 22, y: 22}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

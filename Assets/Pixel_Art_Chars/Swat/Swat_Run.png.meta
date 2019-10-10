@@ -1,0 +1,225 @@
+fileFormatVersion: 2
+guid: 9bff5ce0f43c3414a9b546880072065a
+timeCreated: 1474648864
+licenseType: Store
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Swat_Run_1_0
+    21300002: Swat_Run_1_1
+    21300004: Swat_Run_1_2
+    21300006: Swat_Run_1_3
+    21300008: Swat_Run_1_4
+    21300010: Swat_Run_1_5
+    21300012: Swat_Run_1_6
+    21300014: Swat_Run_1_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 1
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 100
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 1
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Swat_Run_1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 5}
+        - {x: -14, y: -22}
+        - {x: -8, y: -32}
+        - {x: 3, y: -32}
+        - {x: 16, y: -4}
+        - {x: 12, y: 22}
+        - {x: -1, y: 22}
+        - {x: -12, y: 17}
+    - name: Swat_Run_1_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 22}
+        - {x: -22, y: -12}
+        - {x: -22, y: -28}
+        - {x: -2, y: -28}
+        - {x: 13, y: -21}
+        - {x: 13, y: 22}
+    - name: Swat_Run_1_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1, y: 22}
+        - {x: -25, y: 1}
+        - {x: -25, y: -18}
+        - {x: -11, y: -26}
+        - {x: 22, y: -26}
+        - {x: 22, y: 19}
+        - {x: 12, y: 22}
+    - name: Swat_Run_1_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 22}
+        - {x: -19, y: 1}
+        - {x: -19, y: -32}
+        - {x: 12, y: -32}
+        - {x: 14, y: -30}
+        - {x: 14, y: 11}
+        - {x: 10, y: 22}
+    - name: Swat_Run_1_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 22}
+        - {x: -12, y: 14}
+        - {x: -12, y: -32}
+        - {x: 5, y: -32}
+        - {x: 13, y: -27}
+        - {x: 13, y: 21}
+        - {x: 10, y: 22}
+    - name: Swat_Run_1_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 23}
+        - {x: -5, y: 18}
+        - {x: -13, y: 8}
+        - {x: -13, y: -3}
+        - {x: -20, y: -16}
+        - {x: -20, y: -20}
+        - {x: -18, y: -27}
+        - {x: -12, y: -30}
+        - {x: 11, y: -30}
+        - {x: 18, y: -19}
+        - {x: 18, y: 11}
+        - {x: 12, y: 23}
+    - name: Swat_Run_1_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3, y: 24}
+        - {x: -14, y: 17}
+        - {x: -21, y: 7}
+        - {x: -20, y: 2}
+        - {x: -15, y: 0}
+        - {x: -12, y: 3}
+        - {x: -10, y: -5}
+        - {x: -17, y: 1}
+        - {x: -24, y: -2}
+        - {x: -24, y: -10}
+        - {x: -3, y: -25}
+        - {x: 22, y: -25}
+        - {x: 22, y: 15}
+        - {x: 9, y: 24}
+    - name: Swat_Run_1_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 23}
+        - {x: -18, y: 6}
+        - {x: -15, y: -2}
+        - {x: -12, y: -5}
+        - {x: -17, y: -7}
+        - {x: -20, y: -10}
+        - {x: -20, y: -18}
+        - {x: 5, y: -31}
+        - {x: 20, y: -24}
+        - {x: 20, y: 15}
+        - {x: 10, y: 23}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

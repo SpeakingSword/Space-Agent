@@ -1,0 +1,209 @@
+fileFormatVersion: 2
+guid: 4c87b70bb73086040a06f0bf7a4d6740
+timeCreated: 1474302084
+licenseType: Store
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Doctor_Guard_1_0
+    21300002: Doctor_Guard_1_1
+    21300004: Doctor_Guard_1_2
+    21300006: Doctor_Guard_1_3
+    21300008: Doctor_Guard_1_4
+    21300010: Doctor_Guard_1_5
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 1
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 100
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 1
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Doctor_Guard_1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15, y: -31}
+        - {x: 17, y: -29}
+        - {x: 17, y: -26}
+        - {x: 12, y: -9}
+        - {x: 7, y: -6}
+        - {x: 7, y: -2}
+        - {x: 7, y: -4}
+        - {x: 14, y: -10}
+        - {x: 17, y: -10}
+        - {x: 20, y: -7}
+        - {x: 20, y: -2}
+        - {x: 13, y: 22}
+        - {x: -2, y: 22}
+        - {x: -12, y: 18}
+        - {x: -18, y: -1}
+        - {x: -18, y: -31}
+        - {x: -9, y: -31}
+        - {x: -1, y: -17}
+        - {x: 8, y: -29}
+        - {x: 10, y: -31}
+    - name: Doctor_Guard_1_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6, y: -29}
+        - {x: 9, y: -31}
+        - {x: 20, y: -31}
+        - {x: 20, y: 11}
+        - {x: 10, y: 20}
+        - {x: 7, y: 21}
+        - {x: 1, y: 21}
+        - {x: -18, y: 11}
+        - {x: -18, y: -31}
+        - {x: -9, y: -31}
+        - {x: -9, y: -27}
+        - {x: -2, y: -18}
+    - name: Doctor_Guard_1_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 18, y: -31}
+        - {x: 20, y: -26}
+        - {x: 20, y: 12}
+        - {x: 11, y: 20}
+        - {x: -9, y: 20}
+        - {x: -18, y: 13}
+        - {x: -18, y: -31}
+        - {x: -11, y: -31}
+        - {x: -9, y: -29}
+        - {x: 5, y: -31}
+    - name: Doctor_Guard_1_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: -2}
+        - {x: 7, y: -4}
+        - {x: 13, y: -9}
+        - {x: 17, y: -10}
+        - {x: 20, y: -7}
+        - {x: 20, y: -4}
+        - {x: 12, y: 20}
+        - {x: 0, y: 20}
+        - {x: -18, y: 13}
+        - {x: -18, y: -31}
+        - {x: 18, y: -31}
+        - {x: 19, y: -30}
+        - {x: 13, y: -12}
+        - {x: 7, y: -6}
+    - name: Doctor_Guard_1_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14, y: 21}
+        - {x: -9, y: 21}
+        - {x: -18, y: 0}
+        - {x: -18, y: -31}
+        - {x: 19, y: -31}
+        - {x: 20, y: -27}
+        - {x: 20, y: 9}
+    - name: Doctor_Guard_1_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19, y: -30}
+        - {x: 13, y: -14}
+        - {x: 7, y: -6}
+        - {x: 7, y: -1}
+        - {x: 7, y: -3}
+        - {x: 14, y: -10}
+        - {x: 17, y: -10}
+        - {x: 20, y: -7}
+        - {x: 20, y: -4}
+        - {x: 12, y: 22}
+        - {x: 0, y: 22}
+        - {x: -18, y: 16}
+        - {x: -18, y: -31}
+        - {x: -9, y: -31}
+        - {x: -8, y: -30}
+        - {x: 2, y: -31}
+        - {x: 16, y: -31}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

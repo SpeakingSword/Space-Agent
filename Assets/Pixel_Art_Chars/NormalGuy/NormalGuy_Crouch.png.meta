@@ -1,0 +1,185 @@
+fileFormatVersion: 2
+guid: 850b942762e2d0c4481e980a53beb22d
+timeCreated: 1474794657
+licenseType: Store
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: NormalGuy_Crouch_1_0
+    21300002: NormalGuy_Crouch_1_1
+    21300004: NormalGuy_Crouch_1_2
+    21300006: NormalGuy_Crouch_1_3
+    21300008: NormalGuy_Crouch_1_4
+    21300010: NormalGuy_Crouch_1_5
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 1
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 100
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 1
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: NormalGuy_Crouch_1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12, y: 17}
+        - {x: 3, y: 17}
+        - {x: -17, y: 4}
+        - {x: -18, y: -10}
+        - {x: -18, y: -32}
+        - {x: 14, y: -32}
+        - {x: 18, y: -20}
+        - {x: 18, y: 3}
+    - name: NormalGuy_Crouch_1_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9, y: 11}
+        - {x: 2, y: 11}
+        - {x: -16, y: 1}
+        - {x: -18, y: -6}
+        - {x: -18, y: -32}
+        - {x: 11, y: -32}
+        - {x: 17, y: -24}
+        - {x: 17, y: -6}
+        - {x: 14, y: 8}
+    - name: NormalGuy_Crouch_1_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16, y: -25}
+        - {x: 16, y: -5}
+        - {x: 15, y: 6}
+        - {x: 0, y: 6}
+        - {x: -11, y: 0}
+        - {x: -16, y: -10}
+        - {x: -16, y: -16}
+        - {x: -11, y: -21}
+        - {x: -10, y: -20}
+        - {x: -13, y: -23}
+        - {x: -17, y: -26}
+        - {x: -17, y: -29}
+        - {x: -15, y: -32}
+        - {x: 11, y: -32}
+    - name: NormalGuy_Crouch_1_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2, y: 12}
+        - {x: -16, y: -3}
+        - {x: -18, y: -10}
+        - {x: -18, y: -32}
+        - {x: 12, y: -32}
+        - {x: 17, y: -15}
+        - {x: 17, y: -6}
+        - {x: 12, y: 12}
+    - name: NormalGuy_Crouch_1_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 18}
+        - {x: -18, y: 6}
+        - {x: -18, y: -32}
+        - {x: 16, y: -32}
+        - {x: 18, y: -30}
+        - {x: 18, y: 10}
+        - {x: 14, y: 18}
+    - name: NormalGuy_Crouch_1_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: 22}
+        - {x: 0, y: 22}
+        - {x: -15, y: 6}
+        - {x: -12, y: 0}
+        - {x: -16, y: -19}
+        - {x: -16, y: -32}
+        - {x: 18, y: -32}
+        - {x: 19, y: -27}
+        - {x: 19, y: 3}
+        - {x: 13, y: 20}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

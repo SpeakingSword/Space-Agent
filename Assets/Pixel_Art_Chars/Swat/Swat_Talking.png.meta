@@ -1,0 +1,215 @@
+fileFormatVersion: 2
+guid: 6ace2b38a3d2c4a4ab54c0e68dc487ff
+timeCreated: 1474650039
+licenseType: Store
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Swat_Talking_1_0
+    21300002: Swat_Talking_1_1
+    21300004: Swat_Talking_1_2
+    21300006: Swat_Talking_1_3
+    21300008: Swat_Talking_1_4
+    21300010: Swat_Talking_1_5
+    21300012: Swat_Talking_1_6
+    21300014: Swat_Talking_1_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 1
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 100
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 1
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Swat_Talking_1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12, y: 17}
+        - {x: 5, y: 26}
+        - {x: -11, y: 26}
+        - {x: -15, y: 17}
+        - {x: -15, y: -18}
+        - {x: -14, y: -32}
+        - {x: 9, y: -32}
+        - {x: 11, y: -31}
+        - {x: 10, y: -29}
+        - {x: 12, y: -18}
+    - name: Swat_Talking_1_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11, y: -16}
+        - {x: 11, y: 7}
+        - {x: 6, y: 24}
+        - {x: 1, y: 27}
+        - {x: -3, y: 27}
+        - {x: -6, y: 23}
+        - {x: -12, y: 14}
+        - {x: -15, y: 8}
+        - {x: -15, y: -18}
+        - {x: -13, y: -32}
+        - {x: 9, y: -32}
+        - {x: 11, y: -31}
+        - {x: 10, y: -29}
+    - name: Swat_Talking_1_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 25}
+        - {x: -15, y: 23}
+        - {x: -15, y: -32}
+        - {x: 10, y: -32}
+        - {x: 10, y: 17}
+        - {x: 8, y: 25}
+    - name: Swat_Talking_1_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15, y: 27}
+        - {x: -15, y: -32}
+        - {x: 10, y: -32}
+        - {x: 10, y: 21}
+        - {x: 5, y: 27}
+    - name: Swat_Talking_1_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 27}
+        - {x: -8, y: 26}
+        - {x: -15, y: 16}
+        - {x: -15, y: -32}
+        - {x: 11, y: -32}
+        - {x: 11, y: 20}
+        - {x: 5, y: 27}
+    - name: Swat_Talking_1_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 26}
+        - {x: -15, y: 11}
+        - {x: -15, y: -25}
+        - {x: -14, y: -32}
+        - {x: 12, y: -32}
+        - {x: 12, y: 9}
+        - {x: 6, y: 26}
+    - name: Swat_Talking_1_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 24}
+        - {x: -15, y: 20}
+        - {x: -15, y: -32}
+        - {x: 12, y: -32}
+        - {x: 12, y: 19}
+        - {x: 4, y: 24}
+    - name: Swat_Talking_1_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3, y: 24}
+        - {x: -3, y: 24}
+        - {x: -8, y: 21}
+        - {x: -15, y: 8}
+        - {x: -15, y: -32}
+        - {x: 13, y: -32}
+        - {x: 13, y: 8}
+        - {x: 5, y: 22}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
