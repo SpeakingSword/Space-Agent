@@ -5,12 +5,16 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
+    private float scaleX;
+    private float scaleY;
+
     [SerializeField] private float moveForce = 10.0f;       // 推动玩家前进的力，决定了玩家的移动速度
     [SerializeField] private float jumpForce = 100.0f;      // 玩家跳跃的力，决定玩家跳跃的高度
     private Rigidbody2D playerRigidbody2D;
 
     private Transform footPoint;
     private CircleCollider2D footCollider;
+    [SerializeField] private bool onGround;
     [SerializeField] private float rayDistance = 1.0f;
 
     public TextMeshProUGUI moveSpeedText;                   // 在屏幕上显示玩家的移动速度
@@ -22,6 +26,8 @@ public class PlayerController : MonoBehaviour
         playerRigidbody2D = GetComponent<Rigidbody2D>();
         footPoint = transform.Find("FootPoint");
         footCollider = GetComponent<CircleCollider2D>();
+        scaleX = transform.localScale.x;
+        scaleY = transform.localScale.y;
     }
 
     private void FixedUpdate()
@@ -32,9 +38,10 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         PlayerMove();
+        IsOnGround();
         moveSpeedText.text = "MoveSpeed: " + Mathf.RoundToInt(playerRigidbody2D.velocity.x);
-
-        if (Input.GetKeyDown(KeyCode.Space) && IsOnGround())
+        
+        if (Input.GetKeyDown(KeyCode.Space) && onGround)
         {
             PlayerJump();
         }
@@ -45,12 +52,12 @@ public class PlayerController : MonoBehaviour
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         if(horizontalInput > 0)
         {
-            transform.localScale = new Vector2(0.1f, 0.1f);
+            transform.localScale = new Vector2(scaleX, scaleY);
             playerRigidbody2D.AddForce(new Vector2(moveForce, 0));
         }
         else if(horizontalInput < 0)
         {
-            transform.localScale = new Vector2(-0.1f, 0.1f);
+            transform.localScale = new Vector2(-scaleX, scaleY);
             playerRigidbody2D.AddForce(new Vector2(-moveForce, 0));
         }
     }
@@ -61,7 +68,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("我跳起来了");
     }
 
-    bool IsOnGround()
+    void IsOnGround()
     {
         Vector2 raysSartPosition = footPoint.transform.position;
         Vector2 rayDirection = Vector2.down;
@@ -70,12 +77,12 @@ public class PlayerController : MonoBehaviour
         if(rayHits.collider != null)
         {
             Debug.Log("在地上，可以跳");
-            return true;
+            onGround = true;
         }
         else
         {
             Debug.Log("不在地上，不可以跳");
-            return false;
+            onGround = false;
         }
     }
 
