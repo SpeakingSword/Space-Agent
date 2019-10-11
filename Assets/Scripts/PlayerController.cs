@@ -9,26 +9,35 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce = 100.0f;      // 玩家跳跃的力，决定玩家跳跃的高度
     private Rigidbody2D playerRigidbody2D;
 
+    private Transform footPoint;
+    private CircleCollider2D footCollider;
+    [SerializeField] private float rayDistance = 1.0f;
+
     public TextMeshProUGUI moveSpeedText;                   // 在屏幕上显示玩家的移动速度
+
+    public LayerMask groundLayer;
 
     private void Awake()
     {
         playerRigidbody2D = GetComponent<Rigidbody2D>();
+        footPoint = transform.Find("FootPoint");
+        footCollider = GetComponent<CircleCollider2D>();
     }
 
     private void FixedUpdate()
     {
-        PlayerMove();
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            PlayerJump();
-        }
+           
     }
 
     private void Update()
     {
+        PlayerMove();
         moveSpeedText.text = "MoveSpeed: " + Mathf.RoundToInt(playerRigidbody2D.velocity.x);
+
+        if (Input.GetKeyDown(KeyCode.Space) && IsOnGround())
+        {
+            PlayerJump();
+        }
     }
 
     void PlayerMove()
@@ -48,6 +57,27 @@ public class PlayerController : MonoBehaviour
 
     void PlayerJump()
     {
-            playerRigidbody2D.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+        playerRigidbody2D.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+        Debug.Log("我跳起来了");
     }
+
+    bool IsOnGround()
+    {
+        Vector2 raysSartPosition = footPoint.transform.position;
+        Vector2 rayDirection = Vector2.down;
+
+        RaycastHit2D rayHits = Physics2D.Raycast(raysSartPosition, rayDirection, rayDistance, groundLayer);
+        if(rayHits.collider != null)
+        {
+            Debug.Log("在地上，可以跳");
+            return true;
+        }
+        else
+        {
+            Debug.Log("不在地上，不可以跳");
+            return false;
+        }
+    }
+
+    
 }
