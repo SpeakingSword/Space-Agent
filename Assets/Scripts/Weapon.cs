@@ -6,11 +6,16 @@ public class Weapon : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
-    
+
+    private void Start()
+    {
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             Shoot();
         }
@@ -18,6 +23,6 @@ public class Weapon : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(bulletPrefab,firePoint.position,bulletPrefab.transform.rotation);
+        Instantiate(bulletPrefab, firePoint.transform.position, firePoint.transform.rotation);
     }
 }

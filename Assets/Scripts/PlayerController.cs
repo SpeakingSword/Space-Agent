@@ -52,12 +52,14 @@ public class PlayerController : MonoBehaviour
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         if(horizontalInput > 0)
         {
-            transform.localScale = new Vector2(scaleX, scaleY);
+            transform.rotation = new Quaternion(0, 0, 0, 1);
+            //transform.localScale = new Vector2(scaleX, scaleY);
             playerRigidbody2D.AddForce(new Vector2(moveForce, 0));
         }
         else if(horizontalInput < 0)
         {
-            transform.localScale = new Vector2(-scaleX, scaleY);
+            transform.rotation = new Quaternion(0, 180, 0, 1);
+            //transform.localScale = new Vector2(-scaleX, scaleY);
             playerRigidbody2D.AddForce(new Vector2(-moveForce, 0));
         }
     }
@@ -65,7 +67,7 @@ public class PlayerController : MonoBehaviour
     void PlayerJump()
     {
         playerRigidbody2D.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-        Debug.Log("我跳起来了");
+        //Debug.Log("我跳起来了");
     }
 
     void IsOnGround()
@@ -76,12 +78,12 @@ public class PlayerController : MonoBehaviour
         RaycastHit2D rayHits = Physics2D.Raycast(raysSartPosition, rayDirection, rayDistance, groundLayer);
         if(rayHits.collider != null)
         {
-            Debug.Log("在地上，可以跳");
+            //Debug.Log("在地上，可以跳");
             onGround = true;
         }
         else
         {
-            Debug.Log("不在地上，不可以跳");
+            //Debug.Log("不在地上，不可以跳");
             onGround = false;
         }
     }

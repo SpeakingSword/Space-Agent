@@ -13,8 +13,7 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.right * speed;
     }
 
-    void OnTriggerEnter2D(Collider2D hitInfo) {
-        Debug.Log(hitInfo);
+    void OnTriggerEnter2D(Collider2D hitInfo) { 
         Destroy(gameObject);
     }
 }
