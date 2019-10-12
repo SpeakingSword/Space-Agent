@@ -5,9 +5,7 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
-    private float scaleX;
-    private float scaleY;
-
+    
     [SerializeField] private float moveForce = 10.0f;       // 推动玩家前进的力，决定了玩家的移动速度
     [SerializeField] private float jumpForce = 100.0f;      // 玩家跳跃的力，决定玩家跳跃的高度
     private Rigidbody2D playerRigidbody2D;
@@ -26,8 +24,7 @@ public class PlayerController : MonoBehaviour
         playerRigidbody2D = GetComponent<Rigidbody2D>();
         footPoint = transform.Find("FootPoint");
         footCollider = GetComponent<CircleCollider2D>();
-        scaleX = transform.localScale.x;
-        scaleY = transform.localScale.y;
+        
     }
 
     private void FixedUpdate()
