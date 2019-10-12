@@ -14,9 +14,9 @@ public class PlayerController : MonoBehaviour
     private CircleCollider2D footCollider;
     [SerializeField] private bool onGround;
     [SerializeField] private float rayDistance = 1.0f;
+    private Animator playerAnimator;
 
     public TextMeshProUGUI moveSpeedText;                   // 在屏幕上显示玩家的移动速度
-
     public LayerMask groundLayer;
 
     private void Awake()
@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
         playerRigidbody2D = GetComponent<Rigidbody2D>();
         footPoint = transform.Find("FootPoint");
         footCollider = GetComponent<CircleCollider2D>();
+        playerAnimator = GetComponent<Animator>();
+
         
     }
 
@@ -37,6 +39,7 @@ public class PlayerController : MonoBehaviour
         PlayerMove();
         IsOnGround();
         moveSpeedText.text = "MoveSpeed: " + Mathf.RoundToInt(playerRigidbody2D.velocity.x);
+        
         
         if (Input.GetKeyDown(KeyCode.Space) && onGround)
         {
@@ -59,6 +62,8 @@ public class PlayerController : MonoBehaviour
             //transform.localScale = new Vector2(-scaleX, scaleY);
             playerRigidbody2D.AddForce(new Vector2(-moveForce, 0));
         }
+
+        playerAnimator.SetFloat("Speed_f", Mathf.Abs(playerRigidbody2D.velocity.x));
     }
 
     void PlayerJump()

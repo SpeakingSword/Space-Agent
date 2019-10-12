@@ -164,7 +164,7 @@ TilemapCollider2D:
   m_GameObject: {fileID: 47006395}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 48ef7f7b5488b454a8481fd945f4ac34, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 1
@@ -4425,7 +4425,7 @@ CompositeCollider2D:
   m_GameObject: {fileID: 47006395}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 48ef7f7b5488b454a8481fd945f4ac34, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -6760,6 +6760,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1728478014}
   - component: {fileID: 1728478013}
+  - component: {fileID: 1728478021}
   - component: {fileID: 1728478017}
   - component: {fileID: 1728478016}
   - component: {fileID: 1728478015}
@@ -6868,7 +6869,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.1969543, y: 0.7753935}
+  m_Offset: {x: -1.1969543, y: 6.1188917}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -6879,7 +6880,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 12.905318, y: 37.047806}
+  m_Size: {x: 12.905318, y: 26.360807}
   m_EdgeRadius: 0
 --- !u!50 &1728478017
 Rigidbody2D:
@@ -6955,6 +6956,25 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 768
+--- !u!95 &1728478021
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728478012}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1b3af097b19b51446a54c0c66be13420, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1731627716
 PrefabInstance:
   m_ObjectHideFlags: 0
