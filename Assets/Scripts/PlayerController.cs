@@ -30,14 +30,27 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        // 显示移动速度和生命值
         moveSpeedText.text = "MoveSpeed: " + Mathf.RoundToInt(playerRigidbody2D.velocity.x);
         playerHealthText.text = "Health: " + playerHealth;
 
+        // 角色移动
         PlayerMove();
         
+        // 跳跃
         if (Input.GetKeyDown(KeyCode.Space) && IsOnGround())
         {
             PlayerJump();
+            playerAnimator.SetBool("Jump_b", true);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // 落地的时候取消跳跃动画
+        if(collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Crate"))
+        {
+            playerAnimator.SetBool("Jump_b", false);
         }
     }
 
@@ -51,20 +64,21 @@ public class PlayerController : MonoBehaviour
         }
         else if(horizontalInput < 0)
         {
+            // 反转玩家的方向
             transform.rotation = new Quaternion(0, 180, 0, 1);
             playerRigidbody2D.AddForce(new Vector2(-moveForce, 0));
         }
 
+        // 设置动画的Speed_f参数
         playerAnimator.SetFloat("Speed_f", Mathf.Abs(playerRigidbody2D.velocity.x));
     }
 
     void PlayerJump()
     {
         playerRigidbody2D.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-        playerAnimator.SetTrigger("Jump_trig");
     }
 
-    // 通过射线判断玩家垂直下方是否为地面
+    // 通过射线判断玩家是否站在地面上
     bool IsOnGround()
     {
         Vector2 raysSartPosition = footPoint.transform.position;
@@ -72,7 +86,7 @@ public class PlayerController : MonoBehaviour
 
         RaycastHit2D rayHits = Physics2D.Raycast(raysSartPosition, rayDirection, rayDistance, groundLayer);
         if(rayHits.collider != null)
-        {
+        {  
             return true;
         }
         else

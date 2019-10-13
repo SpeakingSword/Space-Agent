@@ -17,17 +17,10 @@ public class Bullet : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            Destroy(gameObject);
-        }
-
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            Vector2 forceFirection = (collision.transform.position - transform.position).normalized;
-            collision.rigidbody.AddForce(forceFirection * bulletForce, ForceMode2D.Impulse);
-            Destroy(gameObject);
-        }
+        // 被子弹a击中的物体受到力
+        Vector2 forceFirection = (collision.transform.position - transform.position).normalized;
+        collision.rigidbody.AddForce(forceFirection * bulletForce, ForceMode2D.Impulse);
+        Destroy(gameObject);
     }
     
 }
