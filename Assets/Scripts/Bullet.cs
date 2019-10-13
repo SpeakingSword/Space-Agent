@@ -27,7 +27,6 @@ public class Bullet : MonoBehaviour
             Vector2 forceFirection = (collision.transform.position - transform.position).normalized;
             collision.rigidbody.AddForce(forceFirection * bulletForce, ForceMode2D.Impulse);
             Destroy(gameObject);
-
         }
     }
     

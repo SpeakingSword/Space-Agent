@@ -4,18 +4,11 @@ using UnityEngine;
 
 public class Melee : MonoBehaviour
 {
-    [SerializeField] private float forceValue = 5.0f;
-    [SerializeField] private float forceDistance = 5.0f;
-    [SerializeField] private Transform hitPoint;
+    [SerializeField] private float forceValue = 5.0f;           // 近战力量的大小
+    [SerializeField] private float forceDistance = 5.0f;        // 近战射线的距离
+    [SerializeField] private Transform hitPoint;                // 近战射线的起始位置
 
-    public LayerMask enemyLayer;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public LayerMask enemyLayer;                                // 场景里的敌人层级
 
     // Update is called once per frame
     void Update()
@@ -26,6 +19,7 @@ public class Melee : MonoBehaviour
         }
     }
 
+    // 通过射线检测前方是否有敌人， 并对距离内的敌人施加力
     void HitEnemy()
     {
         Vector2 rayStartPosition = hitPoint.position;
