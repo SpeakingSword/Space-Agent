@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce = 100.0f;      // 玩家跳跃的力，决定玩家跳跃的高度
     private Rigidbody2D playerRigidbody2D;                  // 获取玩家的刚体， 用来做物理效果
     private Transform footPoint;                            // 玩家的脚的位置
-    private int playerHealth = 100;
+    private int playerHealth = 100;                         // 玩家的生命值
 
     [SerializeField] private float rayDistance = 1.0f;      // 射线的距离，用来判断玩家是否在地面
     private Animator playerAnimator;                        // 玩家的动画控制器

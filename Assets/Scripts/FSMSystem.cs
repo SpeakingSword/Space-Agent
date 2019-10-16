@@ -11,6 +11,10 @@ public enum Transition
     NullTransition = 0,
     SawPlayer,
     LostPlayer,
+    ReachPathPoint,
+    FinishRest,
+    CloseEnough,
+    NotClose,
 }
 
 /// <summary>
@@ -21,6 +25,8 @@ public enum StateID
     NullStateID = 0,
     FollowingPath,
     ChasingPlayer,
+    Rest,
+    Attack,
 }
 
 /// <summary>
