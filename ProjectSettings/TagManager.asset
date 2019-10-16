@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Enemy
   - Crate
+  - Slider
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Enemy
   - Crate
   - Player
-  - 
+  - Slider
   - 
   - 
   - 

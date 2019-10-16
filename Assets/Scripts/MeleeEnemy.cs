@@ -12,6 +12,7 @@ public class MeleeEnemy : MonoBehaviour
 
     [SerializeField] private float detectedRayDistance = 15.0f;
     [SerializeField] private float attackRange = 1.0f;
+    [SerializeField] private float attackForce = 60.0f;
     [SerializeField] private float patrolSpeed = 10.0f;
     [SerializeField] private float persueSpeed = 15.0f;
     [SerializeField] private float jumpForce = 100.0f;
@@ -19,6 +20,7 @@ public class MeleeEnemy : MonoBehaviour
 
     public float DetectedRayDistance { get { return detectedRayDistance; } }
     public float AttackRange { get { return attackRange; } }
+    public float AttackForce { get { return attackForce; } }
     public float PatrolSpeed { get { return patrolSpeed; } }
     public float PersueSpeed { get { return persueSpeed; } }
     public float JumpRayDistance { get { return jumpRayDistance; } }
@@ -40,6 +42,14 @@ public class MeleeEnemy : MonoBehaviour
         fsm.CurrentState.Act(player, gameObject);
     }
 
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Slider")
+        {
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+        }
+    }
+
     private void MakeFSM()
     {
         FollowPathState follow = new FollowPathState(path);
@@ -52,7 +62,8 @@ public class MeleeEnemy : MonoBehaviour
 
         AttackState attack = new AttackState();
         attack.AddTransition(Transition.NotClose, StateID.ChasingPlayer);
-
+        attack.AddTransition(Transition.PlayerDead, StateID.FollowingPath);
+        
         RestState rest = new RestState();
         rest.AddTransition(Transition.FinishRest, StateID.FollowingPath);
 
@@ -62,6 +73,7 @@ public class MeleeEnemy : MonoBehaviour
         fsm.AddState(attack);
         fsm.AddState(rest);
     }
+
 }
 
 // 巡逻状态类
@@ -111,27 +123,31 @@ public class FollowPathState : FSMState
         }
         else
         {
+            if(Vector2.Dot(-npc.transform.right, moveDir) < 0)
+            {
+                npc.transform.Rotate(new Vector3(0, 180, 0), Space.Self);
+            }
+
+            Debug.DrawRay(npc.GetComponent<MeleeEnemy>().footPoint.position,
+                      -npc.transform.right * npc.GetComponent<MeleeEnemy>().JumpRayDistance,
+                      Color.green);
+
+            RaycastHit2D hitObstacle = Physics2D.Raycast(npc.GetComponent<MeleeEnemy>().footPoint.position,
+                                                         -npc.transform.right,
+                                                         npc.GetComponent<MeleeEnemy>().JumpRayDistance,
+                                                         1 << LayerMask.NameToLayer("Ground") | 1 << LayerMask.NameToLayer("Crate"));
+
+            if (hitObstacle.collider != null)
+            {
+                npc.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, npc.GetComponent<MeleeEnemy>().JumpForce), ForceMode2D.Impulse);
+            }
+
             // 继续往路径点移动
             npc.GetComponent<Rigidbody2D>().AddForce(moveDir.normalized * npc.GetComponent<MeleeEnemy>().PatrolSpeed);
         }
-
-        Debug.DrawRay(npc.GetComponent<MeleeEnemy>().footPoint.position, 
-                      -npc.transform.right * npc.GetComponent<MeleeEnemy>().JumpRayDistance, 
-                      Color.green);
-
-        RaycastHit2D hitObstacle = Physics2D.Raycast(npc.GetComponent<MeleeEnemy>().footPoint.position,
-                                                     -npc.transform.right,
-                                                     npc.GetComponent<MeleeEnemy>().JumpRayDistance,
-                                                     1 << LayerMask.NameToLayer("Ground") | 1 << LayerMask.NameToLayer("Crate"));
-
-        if(hitObstacle.collider != null)
-        {
-            npc.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, npc.GetComponent<MeleeEnemy>().JumpForce), ForceMode2D.Impulse);
-        }
-
     }
 
-    public IEnumerator EnemyRest(GameObject npc)
+    private IEnumerator EnemyRest(GameObject npc)
     {
         npc.GetComponent<MeleeEnemy>().SetTransition(Transition.ReachPathPoint);
         int restTime = Random.Range(0, 5);
@@ -157,10 +173,13 @@ public class ChasePlayerState: FSMState
                                                    npc.GetComponent<MeleeEnemy>().DetectedRayDistance,
                                                    1 << player.layer);
 
+        float escapeInY = player.transform.position.y - npc.transform.position.y;
+
         // 如果丢失玩家则转回巡逻状态
-        if(hitPlayer.collider == null)
+        if(hitPlayer.collider == null && escapeInY > 10)
         {
             npc.GetComponent<MeleeEnemy>().SetTransition(Transition.LostPlayer);
+
         }
     }
 
@@ -176,14 +195,6 @@ public class ChasePlayerState: FSMState
         }
 
         Vector2 moveDir = new Vector2(player.transform.position.x - npc.transform.position.x, 0).normalized;
-        npc.GetComponent<Rigidbody2D>().AddForce(moveDir * npc.GetComponent<MeleeEnemy>().PersueSpeed);
-
-        // Debug.LogFormat("The distance between player and enemy: {0}", (npc.transform.position - player.transform.position).magnitude);
-
-        if((npc.transform.position - player.transform.position).magnitude < npc.GetComponent<MeleeEnemy>().AttackRange)
-        {
-            npc.GetComponent<MeleeEnemy>().SetTransition(Transition.CloseEnough);
-        }
 
         Debug.DrawRay(npc.GetComponent<MeleeEnemy>().footPoint.position,
                       -npc.transform.right * npc.GetComponent<MeleeEnemy>().JumpRayDistance,
@@ -198,6 +209,15 @@ public class ChasePlayerState: FSMState
         {
             npc.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, npc.GetComponent<MeleeEnemy>().JumpForce), ForceMode2D.Impulse);
         }
+
+        npc.GetComponent<Rigidbody2D>().AddForce(moveDir * npc.GetComponent<MeleeEnemy>().PersueSpeed);
+
+        if((npc.transform.position - player.transform.position).magnitude < npc.GetComponent<MeleeEnemy>().AttackRange)
+        {
+            npc.GetComponent<MeleeEnemy>().SetTransition(Transition.CloseEnough);
+        }
+
+        
 
     }
 }
@@ -224,6 +244,10 @@ public class RestState: FSMState
 // 攻击状态类
 public class AttackState: FSMState
 {
+    bool isFirstAttack = true;
+    float lastTime = 0.0f;
+    float currentTime = 0.0f;
+
     public AttackState()
     {
         stateID = StateID.Attack;
@@ -231,12 +255,45 @@ public class AttackState: FSMState
 
     public override void Reason(GameObject player, GameObject npc)
     {
-        
+        if ((npc.transform.position - player.transform.position).magnitude > npc.GetComponent<MeleeEnemy>().AttackRange)
+        {
+            npc.GetComponent<MeleeEnemy>().SetTransition(Transition.NotClose);
+        }
     }
 
     public override void Act(GameObject player, GameObject npc)
     {
-        
+        if (isFirstAttack)
+        {
+            player.GetComponent<Rigidbody2D>().AddForce(new Vector2(player.transform.position.x - npc.transform.position.x, 1).normalized
+                                                        * npc.GetComponent<MeleeEnemy>().AttackForce, 
+                                                        ForceMode2D.Impulse);
+            player.GetComponent<PlayerController>().PlayerHealth -= 20;
+            isFirstAttack = false;
+        }
+        else
+        {
+            currentTime = Time.time;
+            if(currentTime - lastTime >= 1)
+            {
+                player.GetComponent<Rigidbody2D>().AddForce(new Vector2(player.transform.position.x - npc.transform.position.x, 1).normalized 
+                                                            * npc.GetComponent<MeleeEnemy>().AttackForce,
+                                                            ForceMode2D.Impulse);
+                player.GetComponent<PlayerController>().PlayerHealth -= 20;
+                lastTime = currentTime;
+            }
+        }
+
+        if(player.GetComponent<PlayerController>().PlayerHealth == 0)
+        {
+            npc.GetComponent<MeleeEnemy>().SetTransition(Transition.PlayerDead);
+        }
+    }
+
+    public override void DoBeforeEntering()
+    {
+        isFirstAttack = true;
+        lastTime = Time.time;
     }
 }
 

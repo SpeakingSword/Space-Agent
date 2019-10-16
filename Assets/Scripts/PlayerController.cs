@@ -19,6 +19,12 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI playerHealthText;
     public LayerMask groundLayer;                           // 场景里的地面层级
 
+    public int PlayerHealth
+    {
+        set { playerHealth = value; }
+        get { return playerHealth; }
+    }
+
     private void Awake()
     {
         playerRigidbody2D = GetComponent<Rigidbody2D>();
@@ -30,6 +36,15 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if(playerHealth == 0)
+        {
+            Debug.Log("The player dead, and the anemy can't detect him!");
+            gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+            gameObject.GetComponent<Weapon>().enabled = false;
+            gameObject.GetComponent<Melee>().enabled = false;
+            gameObject.GetComponent<PlayerController>().enabled = false;  
+        }
+
         // 显示移动速度和生命值
         moveSpeedText.text = "MoveSpeed: " + Mathf.RoundToInt(playerRigidbody2D.velocity.x);
         playerHealthText.text = "Health: " + playerHealth;

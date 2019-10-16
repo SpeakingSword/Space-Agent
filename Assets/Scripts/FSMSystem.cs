@@ -15,6 +15,7 @@ public enum Transition
     FinishRest,
     CloseEnough,
     NotClose,
+    PlayerDead,
 }
 
 /// <summary>
