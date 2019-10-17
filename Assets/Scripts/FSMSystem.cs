@@ -9,13 +9,19 @@ using UnityEngine;
 public enum Transition
 {
     NullTransition = 0,
-    SawPlayer,
-    LostPlayer,
-    ReachPathPoint,
-    FinishRest,
-    CloseEnough,
-    NotClose,
+    M_SawPlayer,
+    M_LostPlayer,
+    M_ReachPathPoint,
+    M_FinishRest,
+    M_CloseEnough,
+    M_NotClose,
     PlayerDead,
+    F_SawPlayer,
+    F_LostPlayer,
+    F_ReachPathPoint,
+    F_FinishRest,
+    F_PlayerComeClose,
+    F_PlayerFallback,
 }
 
 /// <summary>
@@ -24,10 +30,14 @@ public enum Transition
 public enum StateID
 {
     NullStateID = 0,
-    FollowingPath,
-    ChasingPlayer,
-    Rest,
-    Attack,
+    M_FollowingPath, 
+    M_ChasingPlayer,
+    M_Rest,
+    M_Attack,
+    F_FollowingPath,
+    F_Attack,
+    F_Melee,
+    F_Rest,
 }
 
 /// <summary>

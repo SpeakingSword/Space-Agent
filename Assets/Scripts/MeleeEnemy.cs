@@ -5,8 +5,8 @@ using UnityEngine;
 public class MeleeEnemy : MonoBehaviour
 {
     private GameObject player;
+    public LayerMask groundLayer;
     public Transform footPoint;
-    public LayerMask detectedLayer;
     public Transform[] path;
     private FSMSystem fsm;
 
@@ -16,7 +16,7 @@ public class MeleeEnemy : MonoBehaviour
     [SerializeField] private float patrolSpeed = 10.0f;
     [SerializeField] private float persueSpeed = 15.0f;
     [SerializeField] private float jumpForce = 100.0f;
-    private const float jumpRayDistance = 2.5f;
+    private const float jumpRayDistance = 1.5f;
 
     public float DetectedRayDistance { get { return detectedRayDistance; } }
     public float AttackRange { get { return attackRange; } }
@@ -41,31 +41,54 @@ public class MeleeEnemy : MonoBehaviour
         fsm.CurrentState.Reason(player, gameObject);
         fsm.CurrentState.Act(player, gameObject);
     }
-
+   
     void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Slider")
+        string collideObjTag = collision.gameObject.tag;
+        switch (collideObjTag)
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            case "Crate":
+                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-transform.right.x * 20 * Time.deltaTime, jumpForce),
+                                                            ForceMode2D.Impulse);
+                break;
+        }
+    }
+
+    public bool IsOnGround()
+    {
+        Vector2 raysSartPosition = footPoint.transform.position;
+        Vector2 rayDirection = Vector2.down;
+
+        RaycastHit2D rayHits = Physics2D.Raycast(raysSartPosition,
+                                                 rayDirection,
+                                                 1.0f,
+                                                 groundLayer);
+        if (rayHits.collider != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
     private void MakeFSM()
     {
-        FollowPathState follow = new FollowPathState(path);
-        follow.AddTransition(Transition.SawPlayer, StateID.ChasingPlayer);
-        follow.AddTransition(Transition.ReachPathPoint, StateID.Rest);
+        M_FollowPathState follow = new M_FollowPathState(path);
+        follow.AddTransition(Transition.M_SawPlayer, StateID.M_ChasingPlayer);
+        follow.AddTransition(Transition.M_ReachPathPoint, StateID.M_Rest);
 
-        ChasePlayerState chase = new ChasePlayerState();
-        chase.AddTransition(Transition.LostPlayer, StateID.FollowingPath);
-        chase.AddTransition(Transition.CloseEnough, StateID.Attack);
+        M_ChasePlayerState chase = new M_ChasePlayerState();
+        chase.AddTransition(Transition.M_LostPlayer, StateID.M_FollowingPath);
+        chase.AddTransition(Transition.M_CloseEnough, StateID.M_Attack);
 
-        AttackState attack = new AttackState();
-        attack.AddTransition(Transition.NotClose, StateID.ChasingPlayer);
-        attack.AddTransition(Transition.PlayerDead, StateID.FollowingPath);
+        M_AttackState attack = new M_AttackState();
+        attack.AddTransition(Transition.M_NotClose, StateID.M_ChasingPlayer);
+        attack.AddTransition(Transition.PlayerDead, StateID.M_FollowingPath);
         
-        RestState rest = new RestState();
-        rest.AddTransition(Transition.FinishRest, StateID.FollowingPath);
+        M_RestState rest = new M_RestState();
+        rest.AddTransition(Transition.M_FinishRest, StateID.M_FollowingPath);
 
         fsm = new FSMSystem();
         fsm.AddState(follow);
@@ -76,17 +99,17 @@ public class MeleeEnemy : MonoBehaviour
 
 }
 
-// 巡逻状态类
-public class FollowPathState : FSMState
+// 近战敌人巡逻状态类
+public class M_FollowPathState : FSMState
 {
     private int currentWayPoint;
     private Transform[] waypoints;
 
-    public FollowPathState(Transform[] wp)
+    public M_FollowPathState(Transform[] wp)
     {
         waypoints = wp;
         currentWayPoint = 0;
-        stateID = StateID.FollowingPath;
+        stateID = StateID.M_FollowingPath;
     }
 
     public override void Reason(GameObject player, GameObject npc)
@@ -100,9 +123,9 @@ public class FollowPathState : FSMState
 
         if (hitPlayer.collider != null)
         {
-            Debug.Log("Player has been spotted!");
+            Debug.Log("Player has been spotted by melee enemy!");
             // 转换为追击状态
-            npc.GetComponent<MeleeEnemy>().SetTransition(Transition.SawPlayer);
+            npc.GetComponent<MeleeEnemy>().SetTransition(Transition.M_SawPlayer);
         }
     }
 
@@ -119,7 +142,7 @@ public class FollowPathState : FSMState
             }
 
             // 转换为休息状态
-            npc.GetComponent<MeleeEnemy>().StartCoroutine(EnemyRest(npc));
+            // npc.GetComponent<MeleeEnemy>().StartCoroutine(EnemyRest(npc));
         }
         else
         {
@@ -139,30 +162,33 @@ public class FollowPathState : FSMState
 
             if (hitObstacle.collider != null)
             {
-                npc.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, npc.GetComponent<MeleeEnemy>().JumpForce), ForceMode2D.Impulse);
+                npc.GetComponent<Rigidbody2D>().AddForce(new Vector2(-npc.transform.right.x * Time.deltaTime * 5, 
+                                                         npc.GetComponent<MeleeEnemy>().JumpForce), 
+                                                         ForceMode2D.Impulse);
             }
 
             // 继续往路径点移动
-            npc.GetComponent<Rigidbody2D>().AddForce(moveDir.normalized * npc.GetComponent<MeleeEnemy>().PatrolSpeed);
+            if (npc.GetComponent<MeleeEnemy>().IsOnGround())
+                npc.GetComponent<Rigidbody2D>().AddForce(moveDir.normalized * npc.GetComponent<MeleeEnemy>().PatrolSpeed);
         }
     }
 
     private IEnumerator EnemyRest(GameObject npc)
     {
-        npc.GetComponent<MeleeEnemy>().SetTransition(Transition.ReachPathPoint);
+        npc.GetComponent<MeleeEnemy>().SetTransition(Transition.M_ReachPathPoint);
         int restTime = Random.Range(0, 5);
         yield return new WaitForSeconds(restTime);
         npc.transform.Rotate(new Vector3(0, 180, 0), Space.Self);
-        npc.GetComponent<MeleeEnemy>().SetTransition(Transition.FinishRest);
+        npc.GetComponent<MeleeEnemy>().SetTransition(Transition.M_FinishRest);
     }
 }
 
-// 追击状态类
-public class ChasePlayerState: FSMState
+// 近战敌人追击状态类
+public class M_ChasePlayerState: FSMState
 {
-    public ChasePlayerState()
+    public M_ChasePlayerState()
     {
-        stateID = StateID.ChasingPlayer;
+        stateID = StateID.M_ChasingPlayer;
     }
 
     public override void Reason(GameObject player, GameObject npc)
@@ -173,12 +199,12 @@ public class ChasePlayerState: FSMState
                                                    npc.GetComponent<MeleeEnemy>().DetectedRayDistance,
                                                    1 << player.layer);
 
-        float escapeInY = player.transform.position.y - npc.transform.position.y;
+        float escapeInY = Mathf.Abs(player.transform.position.y - npc.transform.position.y);
 
         // 如果丢失玩家则转回巡逻状态
         if(hitPlayer.collider == null && escapeInY > 10)
         {
-            npc.GetComponent<MeleeEnemy>().SetTransition(Transition.LostPlayer);
+            npc.GetComponent<MeleeEnemy>().SetTransition(Transition.M_LostPlayer);
 
         }
     }
@@ -207,14 +233,16 @@ public class ChasePlayerState: FSMState
 
         if (hitObstacle.collider != null)
         {
-            npc.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, npc.GetComponent<MeleeEnemy>().JumpForce), ForceMode2D.Impulse);
+            npc.GetComponent<Rigidbody2D>().AddForce(new Vector2(-npc.transform.right.x * Time.deltaTime * 5, 
+                                                                 npc.GetComponent<MeleeEnemy>().JumpForce), 
+                                                                 ForceMode2D.Impulse);
         }
 
         npc.GetComponent<Rigidbody2D>().AddForce(moveDir * npc.GetComponent<MeleeEnemy>().PersueSpeed);
 
         if((npc.transform.position - player.transform.position).magnitude < npc.GetComponent<MeleeEnemy>().AttackRange)
         {
-            npc.GetComponent<MeleeEnemy>().SetTransition(Transition.CloseEnough);
+            npc.GetComponent<MeleeEnemy>().SetTransition(Transition.M_CloseEnough);
         }
 
         
@@ -222,12 +250,12 @@ public class ChasePlayerState: FSMState
     }
 }
 
-// 休息状态类
-public class RestState: FSMState
+// 近战敌人休息状态类
+public class M_RestState: FSMState
 {
-    public RestState()
+    public M_RestState()
     {
-        stateID = StateID.Rest;
+        stateID = StateID.M_Rest;
     }
 
     public override void Reason(GameObject player, GameObject npc)
@@ -241,23 +269,23 @@ public class RestState: FSMState
     }
 }
 
-// 攻击状态类
-public class AttackState: FSMState
+// 近战敌人攻击状态类
+public class M_AttackState: FSMState
 {
     bool isFirstAttack = true;
     float lastTime = 0.0f;
     float currentTime = 0.0f;
 
-    public AttackState()
+    public M_AttackState()
     {
-        stateID = StateID.Attack;
+        stateID = StateID.M_Attack;
     }
 
     public override void Reason(GameObject player, GameObject npc)
     {
         if ((npc.transform.position - player.transform.position).magnitude > npc.GetComponent<MeleeEnemy>().AttackRange)
         {
-            npc.GetComponent<MeleeEnemy>().SetTransition(Transition.NotClose);
+            npc.GetComponent<MeleeEnemy>().SetTransition(Transition.M_NotClose);
         }
     }
 
@@ -284,7 +312,7 @@ public class AttackState: FSMState
             }
         }
 
-        if(player.GetComponent<PlayerController>().PlayerHealth == 0)
+        if(player.GetComponent<PlayerController>().PlayerHealth <= 0)
         {
             npc.GetComponent<MeleeEnemy>().SetTransition(Transition.PlayerDead);
         }

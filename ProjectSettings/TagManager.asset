@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Crate
   - Slider
+  - Bullet
   layers:
   - Default
   - TransparentFX

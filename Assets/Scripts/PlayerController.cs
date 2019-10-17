@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if(playerHealth == 0)
+        if(playerHealth <= 0)
         {
             Debug.Log("The player dead, and the anemy can't detect him!");
             gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
@@ -62,6 +62,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if(collision.gameObject.tag == "Bullet")
+        {
+            playerHealth -= 5;
+        }
+
         // 落地的时候取消跳跃动画
         if(collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Crate"))
         {

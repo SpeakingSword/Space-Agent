@@ -17,9 +17,9 @@ public class Bullet : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // 被子弹a击中的物体受到力
-        Vector2 forceFirection = (collision.transform.position - transform.position).normalized;
-        collision.rigidbody.AddForce(forceFirection * bulletForce, ForceMode2D.Impulse);
+        // 被子弹击中的物体受到力
+        // Vector2 forceFirection = (collision.transform.position - transform.position).normalized;
+        // collision.rigidbody.AddForce(forceFirection * bulletForce, ForceMode2D.Impulse);
         Destroy(gameObject);
     }
     
