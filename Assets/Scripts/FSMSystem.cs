@@ -22,6 +22,9 @@ public enum Transition
     F_FinishRest,
     F_PlayerComeClose,
     F_PlayerFallback,
+    T_SawPlayer,
+    T_LostPlayer,
+    T_FinishReset,
 }
 
 /// <summary>
@@ -38,6 +41,9 @@ public enum StateID
     F_Attack,
     F_Melee,
     F_Rest,
+    T_Patrol,
+    T_Attack,
+    T_Reset,
 }
 
 /// <summary>

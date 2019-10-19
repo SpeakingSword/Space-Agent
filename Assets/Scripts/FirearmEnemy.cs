@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FirearmEnemy : MonoBehaviour
-{
-    private GameObject player;
+{    
     public LayerMask groundLayer;
     public Transform footPoint;
     public Transform firePoint;
     public GameObject bulletPrefab;
     public Transform[] path;
+    public LayerMask detectedLayer;
     private FSMSystem fsm;
+    private GameObject player;
 
     [SerializeField] private float detectedRayDistance = 15.0f;
     [SerializeField] private float shootRate = 0.5f;
@@ -44,6 +45,16 @@ public class FirearmEnemy : MonoBehaviour
     {
         fsm.CurrentState.Reason(player, gameObject);
         fsm.CurrentState.Act(player, gameObject);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Bullet" && Vector2.Dot(transform.right, player.transform.position - transform.position) < 0)
+        {
+            Transform temp = path[0];
+            path[0] = path[1];
+            path[1] = temp;
+        }    
     }
 
     void OnCollisionStay2D(Collision2D collision)
@@ -110,6 +121,8 @@ public class F_FollowPathState: FSMState
     private int currentWayPoint;
     private Transform[] waypoints;
 
+    public int CurrentWayPoint { get => currentWayPoint; set => currentWayPoint = value; }
+
     public F_FollowPathState(Transform[] wp)
     {
         waypoints = wp;
@@ -118,16 +131,22 @@ public class F_FollowPathState: FSMState
     }
 
     public override void Reason(GameObject player, GameObject npc)
-    {
-        
+    {   
         Debug.DrawRay(npc.transform.position, npc.transform.right * npc.GetComponent<FirearmEnemy>().DetectedRayDistance, Color.red);
 
-        RaycastHit2D hitPlayer = Physics2D.Raycast(npc.transform.position,
-                                                   npc.transform.right,
-                                                   npc.GetComponent<FirearmEnemy>().DetectedRayDistance,
-                                                   1 << player.layer);
+        RaycastHit2D hit = Physics2D.Raycast(npc.transform.position,
+                                             npc.transform.right,
+                                             npc.GetComponent<FirearmEnemy>().DetectedRayDistance,
+                                             npc.GetComponent<FirearmEnemy>().detectedLayer);
 
-        if (hitPlayer.collider != null)
+        Debug.DrawRay(npc.transform.position, -npc.transform.right * npc.GetComponent<FirearmEnemy>().DetectedRayDistance / 10, Color.red);
+
+        RaycastHit2D hit2 = Physics2D.Raycast(npc.transform.position,
+                                              -npc.transform.right,
+                                              npc.GetComponent<FirearmEnemy>().DetectedRayDistance / 10,
+                                              npc.GetComponent<FirearmEnemy>().detectedLayer);
+
+        if ((hit.collider != null && hit.collider.gameObject.tag == "Player") || (hit2.collider != null && hit2.collider.gameObject.tag == "Player"))
         {
             Debug.Log("Player has been spotted by firearm enemy!");
             // 转换为攻击状态
@@ -176,6 +195,7 @@ public class F_FollowPathState: FSMState
             // 继续往路径点移动
             if (npc.GetComponent<FirearmEnemy>().IsOnGround())
                 npc.GetComponent<Rigidbody2D>().AddForce(moveDir.normalized * npc.GetComponent<FirearmEnemy>().PatrolSpeed);
+
         }
     }
 
@@ -213,7 +233,7 @@ public class F_AttackState: FSMState
         float escapeInY = Mathf.Abs(player.transform.position.y - npc.transform.position.y);
         float escapeInX = Mathf.Abs(player.transform.position.x - npc.transform.position.x);
 
-        if ((hitPlayer.collider == null && escapeInY > 10) || escapeInX > npc.GetComponent<FirearmEnemy>().DetectedRayDistance)
+        if ((hitPlayer.collider == null && escapeInY > 8) || escapeInX > npc.GetComponent<FirearmEnemy>().DetectedRayDistance)
         {
             // 转换为巡逻状态
             npc.GetComponent<FirearmEnemy>().SetTransition(Transition.F_LostPlayer);

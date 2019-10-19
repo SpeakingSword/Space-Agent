@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MeleeEnemy : MonoBehaviour
-{
-    private GameObject player;
+{  
     public LayerMask groundLayer;
     public Transform footPoint;
     public Transform[] path;
+    public LayerMask detectedLayer;
     private FSMSystem fsm;
+    private GameObject player;
 
     [SerializeField] private float detectedRayDistance = 15.0f;
     [SerializeField] private float attackRange = 1.0f;
@@ -41,7 +42,17 @@ public class MeleeEnemy : MonoBehaviour
         fsm.CurrentState.Reason(player, gameObject);
         fsm.CurrentState.Act(player, gameObject);
     }
-   
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Bullet" && Vector2.Dot(-transform.right, player.transform.position - transform.position) < 0)
+        {
+            Transform temp = path[0];
+            path[0] = path[1];
+            path[1] = temp;
+        }
+    }
+
     void OnCollisionStay2D(Collision2D collision)
     {
         string collideObjTag = collision.gameObject.tag;
@@ -116,12 +127,19 @@ public class M_FollowPathState : FSMState
     {
         Debug.DrawRay(npc.transform.position, -npc.transform.right * npc.GetComponent<MeleeEnemy>().DetectedRayDistance, Color.red);
 
-        RaycastHit2D hitPlayer = Physics2D.Raycast(npc.transform.position,
+        RaycastHit2D hit = Physics2D.Raycast(npc.transform.position,
                                                    -npc.transform.right,
                                                    npc.GetComponent<MeleeEnemy>().DetectedRayDistance,
-                                                   1 << player.layer);
+                                                   npc.GetComponent<MeleeEnemy>().detectedLayer);
 
-        if (hitPlayer.collider != null)
+        Debug.DrawRay(npc.transform.position, npc.transform.right * npc.GetComponent<MeleeEnemy>().DetectedRayDistance / 10, Color.red);
+
+        RaycastHit2D hit2 = Physics2D.Raycast(npc.transform.position,
+                                                   npc.transform.right,
+                                                   npc.GetComponent<MeleeEnemy>().DetectedRayDistance / 10,
+                                                   npc.GetComponent<MeleeEnemy>().detectedLayer);
+
+        if ((hit.collider != null && hit.collider.gameObject.tag == "Player") || (hit2.collider != null && hit2.collider.gameObject.tag == "Player"))
         {
             Debug.Log("Player has been spotted by melee enemy!");
             // 转换为追击状态
@@ -202,7 +220,7 @@ public class M_ChasePlayerState: FSMState
         float escapeInY = Mathf.Abs(player.transform.position.y - npc.transform.position.y);
 
         // 如果丢失玩家则转回巡逻状态
-        if(hitPlayer.collider == null && escapeInY > 10)
+        if(hitPlayer.collider == null && escapeInY > 8)
         {
             npc.GetComponent<MeleeEnemy>().SetTransition(Transition.M_LostPlayer);
 
