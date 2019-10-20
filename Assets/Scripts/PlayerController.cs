@@ -39,10 +39,7 @@ public class PlayerController : MonoBehaviour
         if(playerHealth <= 0)
         {
             Debug.Log("The player dead, and the anemy can't detect him!");
-            gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
-            gameObject.GetComponent<Weapon>().enabled = false;
-            gameObject.GetComponent<Melee>().enabled = false;
-            gameObject.GetComponent<PlayerController>().enabled = false;  
+            gameObject.SetActive(false);
         }
 
         // 显示移动速度和生命值
@@ -62,6 +59,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // 被子弹击中生命值减少
         if(collision.gameObject.tag == "Bullet")
         {
             playerHealth -= 5;
@@ -113,7 +111,5 @@ public class PlayerController : MonoBehaviour
         {
             return false;
         }
-    }
-
-    
+    }  
 }

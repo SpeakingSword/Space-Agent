@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MeleeEnemy : MonoBehaviour
-{  
+{
+    public GameObject healthText;
     public LayerMask groundLayer;
     public Transform footPoint;
     public Transform[] path;
@@ -18,6 +19,7 @@ public class MeleeEnemy : MonoBehaviour
     [SerializeField] private float persueSpeed = 15.0f;
     [SerializeField] private float jumpForce = 100.0f;
     private const float jumpRayDistance = 1.5f;
+    private int health = 100;
 
     public float DetectedRayDistance { get { return detectedRayDistance; } }
     public float AttackRange { get { return attackRange; } }
@@ -26,6 +28,7 @@ public class MeleeEnemy : MonoBehaviour
     public float PersueSpeed { get { return persueSpeed; } }
     public float JumpRayDistance { get { return jumpRayDistance; } }
     public float JumpForce { get { return jumpForce; } }
+    public int Health { get => health; set => health = value; }
 
     public void SetTransition(Transition t) { fsm.PerformTransition(t); }
 
@@ -45,12 +48,21 @@ public class MeleeEnemy : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Bullet" && Vector2.Dot(-transform.right, player.transform.position - transform.position) < 0)
+        string collideObj = collision.gameObject.tag;
+        switch (collideObj)
         {
-            Transform temp = path[0];
-            path[0] = path[1];
-            path[1] = temp;
+            case "Bullet":
+                health--;
+                healthText.GetComponent<TextMesh>().text = "" + health;
+                if(Vector2.Dot(-transform.right, player.transform.position - transform.position) < 0)
+                {
+                    Transform temp = path[0];
+                    path[0] = path[1];
+                    path[1] = temp;
+                }
+                break;
         }
+        
     }
 
     void OnCollisionStay2D(Collision2D collision)

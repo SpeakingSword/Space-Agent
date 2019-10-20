@@ -17,6 +17,7 @@ public class TurretEnemy : MonoBehaviour
     [SerializeField] private int horizon = 90;
     [SerializeField] private int precision = 2; 
     [SerializeField] private float rayDistance = 10.0f;
+    private int health = 100;
 
     public float PatrolSpeed { get => patrolSpeed; set => patrolSpeed = value; }
     public int Horizon { get => horizon; set => horizon = value; }
@@ -25,6 +26,7 @@ public class TurretEnemy : MonoBehaviour
     public float PatrolTime { get => patrolTime; set => patrolTime = value; }
     public float ShootRate { get => shootRate; set => shootRate = value; }
     public Quaternion OriginalRotation { get => originalRotation; set => originalRotation = value; }
+    public int Health { get => health; set => health = value; }
 
     public void SetTransition(Transition t) { fsm.PerformTransition(t); }
 
