@@ -5,7 +5,6 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
-    
     [SerializeField] private float moveForce = 10.0f;       // 推动玩家前进的力，决定了玩家的移动速度
     [SerializeField] private float jumpForce = 100.0f;      // 玩家跳跃的力，决定玩家跳跃的高度
     private Rigidbody2D playerRigidbody2D;                  // 获取玩家的刚体， 用来做物理效果
@@ -111,5 +110,5 @@ public class PlayerController : MonoBehaviour
         {
             return false;
         }
-    }  
+    }
 }

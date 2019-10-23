@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MeleeEnemy : MonoBehaviour
 {
-    public GameObject healthText;
+    // public GameObject healthText;
     public LayerMask groundLayer;
     public Transform footPoint;
     public Transform[] path;
@@ -52,8 +52,8 @@ public class MeleeEnemy : MonoBehaviour
         switch (collideObj)
         {
             case "Bullet":
-                health--;
-                healthText.GetComponent<TextMesh>().text = "" + health;
+                // health--;
+                // healthText.GetComponent<TextMesh>().text = "" + health;
                 if(Vector2.Dot(-transform.right, player.transform.position - transform.position) < 0)
                 {
                     Transform temp = path[0];

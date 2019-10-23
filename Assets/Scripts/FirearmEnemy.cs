@@ -194,7 +194,7 @@ public class F_FollowPathState: FSMState
                                                          npc.GetComponent<FirearmEnemy>().JumpRayDistance,
                                                          1 << LayerMask.NameToLayer("Ground") | 1 << LayerMask.NameToLayer("Crate"));
 
-            if (hitObstacle.collider != null)
+            if (hitObstacle.collider != null && npc.GetComponent<FirearmEnemy>().IsOnGround())
             {
                 npc.GetComponent<Rigidbody2D>().AddForce(new Vector2(npc.transform.right.x * Time.deltaTime * 5, 
                                                                      npc.GetComponent<FirearmEnemy>().JumpForce), 
@@ -244,7 +244,7 @@ public class F_AttackState: FSMState
 
         // 第一个括号内的条件防止玩家跳到敌人头顶而敌人却因此失去目标
         // 第二个条件是玩家在水平方向上离得足够远才能使敌人失去目标
-        if ((hitPlayer.collider == null && escapeInY > 8) || escapeInX > npc.GetComponent<FirearmEnemy>().DetectedRayDistance)
+        if ((hitPlayer.collider == null && escapeInY > 8) || escapeInX > 45)
         {
             // 转换为巡逻状态
             npc.GetComponent<FirearmEnemy>().SetTransition(Transition.F_LostPlayer);

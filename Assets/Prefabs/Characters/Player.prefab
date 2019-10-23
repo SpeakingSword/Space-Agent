@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 8010385507725971707}
   - component: {fileID: 8010385507725971706}
   - component: {fileID: 8010385507725971709}
+  - component: {fileID: 1897453354193461122}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -205,10 +206,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveForce: 240
-  jumpForce: 160
+  jumpForce: 140
   rayDistance: 0.1
-  moveSpeedText: {fileID: 0}
-  playerHealthText: {fileID: 0}
+  moveSpeedText: {fileID: 3103928341760112212, guid: a1afa332d99f11f4d9164d1d8f3a589a,
+    type: 3}
+  playerHealthText: {fileID: 5144978097252866971, guid: b7cced37bf27c6a4aa9e23fbc448c6b7,
+    type: 3}
   groundLayer:
     serializedVersion: 2
     m_Bits: 1792
@@ -245,6 +248,26 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 1536
+--- !u!114 &1897453354193461122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8010385507725971589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb31a249f4908be48901caf811966501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headPoint: {fileID: 8010385508262898219}
+  footPoint: {fileID: 8010385508034461747}
+  firePoint: {fileID: 8010385507385196930}
+  carriable:
+    serializedVersion: 2
+    m_Bits: 1024
+  rayPrecision: 4
+  rayDistance: 1.5
 --- !u!1 &8010385508034461744
 GameObject:
   m_ObjectHideFlags: 0
