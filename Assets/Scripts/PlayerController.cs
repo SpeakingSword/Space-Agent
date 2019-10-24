@@ -28,9 +28,7 @@ public class PlayerController : MonoBehaviour
     {
         playerRigidbody2D = GetComponent<Rigidbody2D>();
         footPoint = transform.Find("FootPoint");
-        playerAnimator = GetComponent<Animator>();
-
-        
+        playerAnimator = GetComponent<Animator>();    
     }
 
     private void Update()
