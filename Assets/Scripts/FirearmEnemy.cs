@@ -187,17 +187,13 @@ public class F_FollowPathState: FSMState
                 currentWayPoint = 0;
             }
 
+            // 转向
+            npc.transform.Rotate(new Vector3(0, 180, 0));
             // 转换为休息状态
             // npc.GetComponent<FirearmEnemy>().StartCoroutine(EnemyRest(npc));
         }
         else
         {
-            // 如果目标点在该敌人后方，则转向
-            if (Vector2.Dot(npc.transform.right, moveDir) < 0)
-            {
-                npc.transform.Rotate(new Vector3(0, 180, 0), Space.Self);
-            }
-
             Debug.DrawRay(npc.GetComponent<FirearmEnemy>().footPoint.position,
                       npc.transform.right * npc.GetComponent<FirearmEnemy>().JumpRayDistance,
                       Color.green);
@@ -212,6 +208,11 @@ public class F_FollowPathState: FSMState
                 npc.GetComponent<Rigidbody2D>().AddForce(new Vector2(npc.transform.right.x * Time.deltaTime * 5, 
                                                                      npc.GetComponent<FirearmEnemy>().JumpForce), 
                                                                      ForceMode2D.Impulse);
+            }
+
+            if (Vector3.Dot(waypoints[currentWayPoint].transform.position - npc.transform.position, npc.transform.right) < 0)
+            {
+                npc.transform.Rotate(new Vector3(0, 180, 0));
             }
 
             // 继续往路径点移动
@@ -245,6 +246,12 @@ public class F_AttackState: FSMState
 
     public override void Reason(GameObject player, GameObject npc)
     {
+        // 在攻击状态时如果玩家在敌人后方，敌人需转向
+        if (Vector3.Dot(player.transform.position - npc.transform.position, npc.transform.right) < 0)
+        {
+            npc.transform.Rotate(new Vector3(0, 180, 0));
+        }
+
         Debug.DrawRay(npc.transform.position, npc.transform.right * npc.GetComponent<FirearmEnemy>().DetectedRayDistance, Color.red);
         
         RaycastHit2D hitPlayer = Physics2D.Raycast(npc.transform.position,
@@ -272,12 +279,6 @@ public class F_AttackState: FSMState
 
     public override void Act(GameObject player, GameObject npc)
     {
-        // 在攻击状态时如果玩家在敌人后方，敌人需转向
-        if (Vector2.Dot(player.transform.position - npc.transform.position, npc.transform.right) < 0)
-        {
-            npc.transform.Rotate(new Vector3(0, 180, 0), Space.Self);
-        }
-
         // 开始发射子弹，有发射频率
         
         currentTime = Time.time;

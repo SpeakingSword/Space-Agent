@@ -174,15 +174,13 @@ public class M_FollowPathState : FSMState
                 currentWayPoint = 0;
             }
 
+            // 转向
+            npc.transform.Rotate(new Vector3(0, 180, 0));
             // 转换为休息状态
             // npc.GetComponent<MeleeEnemy>().StartCoroutine(EnemyRest(npc));
         }
         else
         {
-            if(Vector2.Dot(-npc.transform.right, moveDir) < 0)
-            {
-                npc.transform.Rotate(new Vector3(0, 180, 0), Space.Self);
-            }
 
             Debug.DrawRay(npc.GetComponent<MeleeEnemy>().footPoint.position,
                       -npc.transform.right * npc.GetComponent<MeleeEnemy>().JumpRayDistance,
@@ -198,6 +196,12 @@ public class M_FollowPathState : FSMState
                 npc.GetComponent<Rigidbody2D>().AddForce(new Vector2(-npc.transform.right.x * Time.deltaTime * 5, 
                                                          npc.GetComponent<MeleeEnemy>().JumpForce), 
                                                          ForceMode2D.Impulse);
+            }
+
+            // 转向
+            if(Vector3.Dot(waypoints[currentWayPoint].transform.position - npc.transform.position, -npc.transform.right) < 0)
+            {
+                npc.transform.Rotate(new Vector3(0, 180, 0));
             }
 
             // 继续往路径点移动
@@ -226,6 +230,12 @@ public class M_ChasePlayerState: FSMState
 
     public override void Reason(GameObject player, GameObject npc)
     {
+        // 转向
+        if (Vector3.Dot(player.transform.position - npc.transform.position, -npc.transform.right) < 0)
+        {
+            npc.transform.Rotate(new Vector3(0, 180, 0));
+        }
+
         Debug.DrawRay(npc.transform.position, -npc.transform.right * npc.GetComponent<MeleeEnemy>().DetectedRayDistance, Color.red);
         RaycastHit2D hitPlayer = Physics2D.Raycast(npc.transform.position,
                                                    -npc.transform.right,
@@ -235,7 +245,7 @@ public class M_ChasePlayerState: FSMState
         float escapeInY = Mathf.Abs(player.transform.position.y - npc.transform.position.y);
 
         // 如果丢失玩家则转回巡逻状态
-        if(hitPlayer.collider == null && escapeInY > 8)
+        if (hitPlayer.collider == null && escapeInY > 8)
         {
             npc.GetComponent<MeleeEnemy>().SetTransition(Transition.M_LostPlayer);
 
@@ -244,15 +254,6 @@ public class M_ChasePlayerState: FSMState
 
     public override void Act(GameObject player, GameObject npc)
     {
-        if(player.transform.position.x > npc.transform.position.x)
-        {
-            npc.transform.rotation = new Quaternion(0, 180, 0, 1);
-        }
-        else
-        {
-            npc.transform.rotation = new Quaternion(0, 0, 0, 1);
-        }
-
         Vector2 moveDir = new Vector2(player.transform.position.x - npc.transform.position.x, 0).normalized;
 
         Debug.DrawRay(npc.GetComponent<MeleeEnemy>().footPoint.position,
