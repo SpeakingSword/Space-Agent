@@ -9,6 +9,7 @@ public class TurretEnemy : MonoBehaviour
     public GameObject bulletPrefab;
     private GameObject player;
     private FSMSystem fsm;
+    private AudioSource turretAudio;
     private Quaternion originalRotation;
 
     [SerializeField] private float patrolTime = 3;
@@ -17,6 +18,7 @@ public class TurretEnemy : MonoBehaviour
     [SerializeField] private int horizon = 90;
     [SerializeField] private int precision = 2; 
     [SerializeField] private float rayDistance = 10.0f;
+    public AudioClip fireSound;
     private int health = 100;
 
     public float PatrolSpeed { get => patrolSpeed; set => patrolSpeed = value; }
@@ -27,6 +29,7 @@ public class TurretEnemy : MonoBehaviour
     public float ShootRate { get => shootRate; set => shootRate = value; }
     public Quaternion OriginalRotation { get => originalRotation; set => originalRotation = value; }
     public int Health { get => health; set => health = value; }
+    public AudioSource TurretAudio { get => turretAudio; set => turretAudio = value; }
 
     public void SetTransition(Transition t) { fsm.PerformTransition(t); }
 
@@ -34,6 +37,7 @@ public class TurretEnemy : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
+        turretAudio = GetComponent<AudioSource>();
         OriginalRotation = transform.rotation;
         MakeFSM();
     }
@@ -79,6 +83,7 @@ public class T_PatrolState: FSMState
 
     public override void Reason(GameObject player, GameObject npc)
     {
+        // 发射射线，侦测到玩家则转换为攻击状态
         float subAngle = npc.GetComponent<TurretEnemy>().Horizon / npc.GetComponent<TurretEnemy>().Precision * 2;
         for (int i = 0; i < npc.GetComponent<TurretEnemy>().Precision; i++)
         {
@@ -131,6 +136,7 @@ public class T_PatrolState: FSMState
     public override void DoBeforeEntering()
     {
         lastTime = Time.time;
+        direction = 1;
     }
 }
 
@@ -167,6 +173,7 @@ public class T_AttackState: FSMState
         currentTime = Time.time;
         if(currentTime - lastTime >= npc.GetComponent<TurretEnemy>().ShootRate)
         {
+            npc.GetComponent<TurretEnemy>().TurretAudio.PlayOneShot(npc.GetComponent<TurretEnemy>().fireSound, 0.2f);
             Object.Instantiate(npc.GetComponent<TurretEnemy>().bulletPrefab,
                            npc.GetComponent<TurretEnemy>().firePoint.position,
                            npc.transform.rotation * Quaternion.Euler(0, 0, -90));

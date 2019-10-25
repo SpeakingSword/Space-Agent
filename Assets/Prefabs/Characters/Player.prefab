@@ -42,8 +42,9 @@ GameObject:
   - component: {fileID: 8010385507725971588}
   - component: {fileID: 8010385507725971708}
   - component: {fileID: 8010385507725971704}
-  - component: {fileID: 8010385507725971590}
+  - component: {fileID: 598637567306665831}
   - component: {fileID: 8010385507725971705}
+  - component: {fileID: 8010385507725971590}
   - component: {fileID: 8010385507725971707}
   - component: {fileID: 8010385507725971706}
   - component: {fileID: 8010385507725971709}
@@ -161,22 +162,102 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &8010385507725971590
-CircleCollider2D:
+--- !u!82 &598637567306665831
+AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8010385507725971589}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -1.4961886, y: -23.19091}
-  serializedVersion: 2
-  m_Radius: 6.7144322
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!70 &8010385507725971705
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -193,6 +274,22 @@ CapsuleCollider2D:
   m_Offset: {x: -1.7447175, y: 1.8350965}
   m_Size: {x: 20.062937, y: 35.691517}
   m_Direction: 0
+--- !u!58 &8010385507725971590
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8010385507725971589}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.4961886, y: -23.19091}
+  serializedVersion: 2
+  m_Radius: 6.7144322
 --- !u!114 &8010385507725971707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,10 +305,9 @@ MonoBehaviour:
   moveForce: 240
   jumpForce: 140
   rayDistance: 0.1
-  moveSpeedText: {fileID: 3103928341760112212, guid: a1afa332d99f11f4d9164d1d8f3a589a,
-    type: 3}
-  playerHealthText: {fileID: 5144978097252866971, guid: b7cced37bf27c6a4aa9e23fbc448c6b7,
-    type: 3}
+  moveSpeedText: {fileID: 0}
+  playerHealthText: {fileID: 0}
+  playerScoreText: {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 1792
@@ -227,6 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebf43940c6140204ea6fb3acf57905f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireSound: {fileID: 0}
   firePoint: {fileID: 8010385507385196930}
   bulletPrefab: {fileID: 1477010869174131555, guid: f0c36809bc0235a44af2ceef7bdc0f23,
     type: 3}

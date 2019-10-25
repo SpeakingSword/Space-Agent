@@ -19,7 +19,7 @@ public class Melee : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.Mouse1) && !gameObject.GetComponent<Hold>().IsHold)
         {
             HitEnemy(); 
         }

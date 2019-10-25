@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int playerMaxHealth = 100;
 
     public int PlayerMaxHealth { get => playerMaxHealth; set => playerMaxHealth = value; }
+    public float GravityModifier { get => gravityModifier; set => gravityModifier = value; }
 
     // Start is called before the first frame update
     void Start()

@@ -12,6 +12,7 @@ public class FirearmEnemy : MonoBehaviour
     public LayerMask detectedLayer;             // 被探测的玩家的层
     private FSMSystem fsm;                      // 一个FSM实例
     private GameObject player;                  // 玩家实例
+    private AudioSource firearmEnemyAudio;
 
     [SerializeField] private float detectedRayDistance = 15.0f;             // 探测玩家层的射线长度
     [SerializeField] private float shootRate = 0.5f;                        // 射击频率
@@ -20,6 +21,7 @@ public class FirearmEnemy : MonoBehaviour
     [SerializeField] private float jumpForce = 100.0f;                      // 跳跃用的力度
     [SerializeField] private float meleeForce = 60.0f;                      // 近战攻击的力度
     [SerializeField] private float meleeRange = 1.0f;                       // 近战攻击的距离
+    public AudioClip fireSound;
     private const float jumpRayDistance = 1.5f;                             // 探测障碍的射线长度
     private int health = 100;
 
@@ -32,6 +34,7 @@ public class FirearmEnemy : MonoBehaviour
     public float MeleeForce { get => meleeForce; set => meleeForce = value; }
     public float MeleeRange { get => meleeRange; set => meleeRange = value; }
     public int Health { get => health; set => health = value; }
+    public AudioSource FirearmEnemyAudio { get => firearmEnemyAudio; set => firearmEnemyAudio = value; }
 
     // 激活状态转换过程
     public void SetTransition(Transition t) { fsm.PerformTransition(t); }
@@ -40,6 +43,7 @@ public class FirearmEnemy : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
+        firearmEnemyAudio = GetComponent<AudioSource>();
         MakeFSM();
     }
 
@@ -48,16 +52,25 @@ public class FirearmEnemy : MonoBehaviour
     {
         fsm.CurrentState.Reason(player, gameObject);
         fsm.CurrentState.Act(player, gameObject);
+
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         // 当受到攻击时且玩家处于该敌人的后方时交换两个路径点的值
-        if(collision.gameObject.tag == "Bullet" && Vector2.Dot(transform.right, player.transform.position - transform.position) < 0)
+        if(collision.gameObject.tag == "Bullet")
         {
-            Transform temp = path[0];
-            path[0] = path[1];
-            path[1] = temp;
+            health -= 20;
+            if(Vector2.Dot(transform.right, player.transform.position - transform.position) < 0)
+            {
+                Transform temp = path[0];
+                path[0] = path[1];
+                path[1] = temp;
+            }  
         }    
     }
 
@@ -244,7 +257,7 @@ public class F_AttackState: FSMState
 
         // 第一个括号内的条件防止玩家跳到敌人头顶而敌人却因此失去目标
         // 第二个条件是玩家在水平方向上离得足够远才能使敌人失去目标
-        if ((hitPlayer.collider == null && escapeInY > 8) || escapeInX > 45)
+        if ((hitPlayer.collider == null && escapeInY > 4) || escapeInX > 45)
         {
             // 转换为巡逻状态
             npc.GetComponent<FirearmEnemy>().SetTransition(Transition.F_LostPlayer);
@@ -266,24 +279,17 @@ public class F_AttackState: FSMState
         }
 
         // 开始发射子弹，有发射频率
-        if (isFirstAttack)
+        
+        currentTime = Time.time;
+        if ((currentTime - lastTime) > npc.GetComponent<FirearmEnemy>().ShootRate)
         {
+            npc.GetComponent<FirearmEnemy>().FirearmEnemyAudio.PlayOneShot(npc.GetComponent<FirearmEnemy>().fireSound, 0.2f);
             Object.Instantiate(npc.GetComponent<FirearmEnemy>().bulletPrefab,
-                                   npc.GetComponent<FirearmEnemy>().firePoint.position,
-                                   npc.GetComponent<FirearmEnemy>().firePoint.rotation);
-            isFirstAttack = false;
+                               npc.GetComponent<FirearmEnemy>().firePoint.position,
+                               npc.GetComponent<FirearmEnemy>().firePoint.rotation);
+            lastTime = currentTime;
         }
-        else
-        {
-            currentTime = Time.time;
-            if (currentTime - lastTime >= npc.GetComponent<FirearmEnemy>().ShootRate)
-            {
-                Object.Instantiate(npc.GetComponent<FirearmEnemy>().bulletPrefab,
-                                   npc.GetComponent<FirearmEnemy>().firePoint.position,
-                                   npc.GetComponent<FirearmEnemy>().firePoint.rotation);
-                lastTime = currentTime;
-            }
-        }
+        
 
         // 玩家死亡则转换为巡逻状态
         if (player.GetComponent<PlayerController>().PlayerHealth <= 0)

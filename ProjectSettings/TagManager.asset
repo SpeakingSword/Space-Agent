@@ -9,6 +9,8 @@ TagManager:
   - Crate
   - Slider
   - Bullet
+  - Coin
+  - End
   layers:
   - Default
   - TransparentFX
@@ -24,7 +26,7 @@ TagManager:
   - Player
   - Slider
   - Bullet
-  - 
+  - Prop
   - 
   - 
   - 

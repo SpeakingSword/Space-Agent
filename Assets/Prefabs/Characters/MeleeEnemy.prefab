@@ -174,8 +174,8 @@ MonoBehaviour:
   detectedRayDistance: 100
   attackRange: 2
   attackForce: 150
-  patrolSpeed: 180
-  persueSpeed: 200
+  patrolSpeed: 140
+  persueSpeed: 160
   jumpForce: 9
 --- !u!1 &8769924054362551788
 GameObject:

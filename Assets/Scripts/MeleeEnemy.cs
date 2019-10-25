@@ -44,6 +44,10 @@ public class MeleeEnemy : MonoBehaviour
     {
         fsm.CurrentState.Reason(player, gameObject);
         fsm.CurrentState.Act(player, gameObject);
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -52,8 +56,7 @@ public class MeleeEnemy : MonoBehaviour
         switch (collideObj)
         {
             case "Bullet":
-                // health--;
-                // healthText.GetComponent<TextMesh>().text = "" + health;
+                health -= 20;
                 if(Vector2.Dot(-transform.right, player.transform.position - transform.position) < 0)
                 {
                     Transform temp = path[0];
@@ -261,7 +264,7 @@ public class M_ChasePlayerState: FSMState
                                                      npc.GetComponent<MeleeEnemy>().JumpRayDistance,
                                                      1 << LayerMask.NameToLayer("Ground") | 1 << LayerMask.NameToLayer("Crate"));
 
-        if (hitObstacle.collider != null)
+        if (hitObstacle.collider != null && npc.GetComponent<MeleeEnemy>().IsOnGround())
         {
             npc.GetComponent<Rigidbody2D>().AddForce(new Vector2(-npc.transform.right.x * Time.deltaTime * 5, 
                                                                  npc.GetComponent<MeleeEnemy>().JumpForce), 

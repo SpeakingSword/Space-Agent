@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpawnManager : MonoBehaviour
 {
     public GameObject player;
     public Transform spawnPosition;
+    public GameObject gameOverScreen;
     private GameManager gameManager;
 
     void Start()
@@ -17,9 +19,20 @@ public class SpawnManager : MonoBehaviour
     {
         if(player.GetComponent<PlayerController>().PlayerHealth <= 0)
         {
-            player.transform.position = spawnPosition.position;
-            player.GetComponent<PlayerController>().PlayerHealth = gameManager.PlayerMaxHealth;
-            player.SetActive(true);
+            
+            gameOverScreen.SetActive(true);
         }    
+    }
+
+    public void RestartGame()
+    {
+        Physics2D.gravity /= gameManager.GravityModifier;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Menu()
+    {
+        Physics2D.gravity /= gameManager.GravityModifier;
+        SceneManager.LoadScene("Start");
     }
 }

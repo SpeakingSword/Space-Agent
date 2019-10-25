@@ -10,13 +10,18 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D playerRigidbody2D;                  // 获取玩家的刚体， 用来做物理效果
     private Transform footPoint;                            // 玩家的脚的位置
     private int playerHealth = 100;                         // 玩家的生命值
+    private int playerScore = 0;                            // 玩家的分数
+    private AudioSource playerAudio;
 
     [SerializeField] private float rayDistance = 1.0f;      // 射线的距离，用来判断玩家是否在地面
     private Animator playerAnimator;                        // 玩家的动画控制器
 
     public TextMeshProUGUI moveSpeedText;                   // 在屏幕上显示玩家的移动速度
-    public TextMeshProUGUI playerHealthText;
+    public TextMeshProUGUI playerHealthText;                // 显示玩家的生命值
+    public TextMeshProUGUI playerScoreText;                 // 显示玩家的分数
     public LayerMask groundLayer;                           // 场景里的地面层级
+    public AudioClip colideCoin;
+    public GameObject showText;
 
     public int PlayerHealth
     {
@@ -28,7 +33,8 @@ public class PlayerController : MonoBehaviour
     {
         playerRigidbody2D = GetComponent<Rigidbody2D>();
         footPoint = transform.Find("FootPoint");
-        playerAnimator = GetComponent<Animator>();    
+        playerAnimator = GetComponent<Animator>();
+        playerAudio = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -42,6 +48,7 @@ public class PlayerController : MonoBehaviour
         // 显示移动速度和生命值
         moveSpeedText.text = "MoveSpeed: " + Mathf.RoundToInt(playerRigidbody2D.velocity.x);
         playerHealthText.text = "Health: " + playerHealth;
+        playerScoreText.text = "Score:" + playerScore;
 
         // 角色移动
         PlayerMove();
@@ -56,10 +63,24 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // 被子弹击中生命值减少
-        if(collision.gameObject.tag == "Bullet")
+        if(collision.gameObject.tag == "End")
         {
-            playerHealth -= 5;
+            showText.SetActive(true);
+        }
+
+        // 如果碰到硬币则分数增加，并销毁硬币
+        if (collision.gameObject.tag == "Coin")
+        {
+            playerAudio.PlayOneShot(colideCoin, 1);
+            Debug.LogFormat("I'm in the collision!");
+            playerScore += 20;
+            Destroy(collision.gameObject);
+        }
+
+        // 被子弹击中生命值减少
+        if (collision.gameObject.tag == "Bullet")
+        {
+            playerHealth -= 20;
         }
 
         // 落地的时候取消跳跃动画

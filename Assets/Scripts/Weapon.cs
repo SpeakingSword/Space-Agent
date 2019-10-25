@@ -6,12 +6,13 @@ public class Weapon : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
+    public AudioClip fireSound;
 
-    private Animator playerAnimator;
+    private AudioSource weaponAudio;
 
-    private void Awake()
+    void Awake()
     {
-        playerAnimator = GetComponent<Animator>();
+        weaponAudio = GetComponent<AudioSource>();    
     }
 
     // Update is called once per frame
@@ -20,12 +21,13 @@ public class Weapon : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) && !gameObject.GetComponent<Hold>().IsHold)
         {
             Shoot();
+            weaponAudio.PlayOneShot(fireSound, 0.2f);
         }
     }
 
     // 发射子弹
     void Shoot()
     {
-        Instantiate(bulletPrefab, firePoint.transform.position, firePoint.transform.rotation);
+        Instantiate(bulletPrefab, firePoint.transform.position, firePoint.transform.rotation);       
     }
 }
