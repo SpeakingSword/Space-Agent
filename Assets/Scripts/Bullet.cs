@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private float bulletForce = 10.0f;
-    [SerializeField] private float speed = 20f;
+    [SerializeField] private float bulletForce = 10.0f;             // 子弹击中力度
+    [SerializeField] private float speed = 20f;                     // 子弹飞行速度
     public Rigidbody2D rb;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        // 设置子弹的初始速度
         rb.velocity = transform.right * speed;
     }
     

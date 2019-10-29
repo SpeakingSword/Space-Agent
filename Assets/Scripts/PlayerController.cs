@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private Transform footPoint;                            // 玩家的脚的位置
     private int playerHealth = 100;                         // 玩家的生命值
     private int playerScore = 0;                            // 玩家的分数
-    private AudioSource playerAudio;
+    private AudioSource playerAudio;                        // 玩家的音效播放器
 
     [SerializeField] private float rayDistance = 1.0f;      // 射线的距离，用来判断玩家是否在地面
     private Animator playerAnimator;                        // 玩家的动画控制器
@@ -20,8 +20,8 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI playerHealthText;                // 显示玩家的生命值
     public TextMeshProUGUI playerScoreText;                 // 显示玩家的分数
     public LayerMask groundLayer;                           // 场景里的地面层级
-    public AudioClip colideCoin;
-    public GameObject showText;
+    public AudioClip colideCoin;                            // 碰到硬币的音效
+    public GameObject showText;                             // 游戏通关显示的界面
 
     public int PlayerHealth
     {
@@ -39,13 +39,14 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        // 如果生命值小于等于0则角色消失
         if(playerHealth <= 0)
         {
             Debug.Log("The player dead, and the anemy can't detect him!");
             gameObject.SetActive(false);
         }
 
-        // 显示移动速度和生命值
+        // 显示移动速度、生命值、分数
         moveSpeedText.text = "MoveSpeed: " + Mathf.RoundToInt(playerRigidbody2D.velocity.x);
         playerHealthText.text = "Health: " + playerHealth;
         playerScoreText.text = "Score:" + playerScore;
@@ -57,12 +58,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && IsOnGround())
         {
             PlayerJump();
-            playerAnimator.SetBool("Jump_b", true);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // 如果玩家到达终点，则显示通关界面
         if(collision.gameObject.tag == "End")
         {
             showText.SetActive(true);
@@ -71,7 +72,9 @@ public class PlayerController : MonoBehaviour
         // 如果碰到硬币则分数增加，并销毁硬币
         if (collision.gameObject.tag == "Coin")
         {
+            // 播放音效
             playerAudio.PlayOneShot(colideCoin, 1);
+
             Debug.LogFormat("I'm in the collision!");
             playerScore += 20;
             Destroy(collision.gameObject);
@@ -83,7 +86,7 @@ public class PlayerController : MonoBehaviour
             playerHealth -= 20;
         }
 
-        // 落地的时候取消跳跃动画
+        // 落地的时候取消播放跳跃动画
         if(collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Crate"))
         {
             playerAnimator.SetBool("Jump_b", false);
@@ -92,6 +95,7 @@ public class PlayerController : MonoBehaviour
 
     void PlayerMove()
     {
+        // 得到水平方向的输入值，大于0为向右移动，小于0为向左移动，等于0为不移动
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         if(horizontalInput > 0)
         {
@@ -105,13 +109,16 @@ public class PlayerController : MonoBehaviour
             playerRigidbody2D.AddForce(new Vector2(-moveForce, 0));
         }
 
-        // 设置动画的Speed_f参数
+        // 设置动画的Speed_f参数，播放角色跑动动画
         playerAnimator.SetFloat("Speed_f", Mathf.Abs(playerRigidbody2D.velocity.x));
     }
 
     void PlayerJump()
     {
         playerRigidbody2D.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+
+        // 播放跳跃动画
+        playerAnimator.SetBool("Jump_b", true);
     }
 
     // 通过射线判断玩家是否站在地面上

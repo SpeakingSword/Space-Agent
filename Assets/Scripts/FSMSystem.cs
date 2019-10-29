@@ -9,22 +9,26 @@ using UnityEngine;
 public enum Transition
 {
     NullTransition = 0,
-    M_SawPlayer,
-    M_LostPlayer,
-    M_ReachPathPoint,
-    M_FinishRest,
-    M_CloseEnough,
-    M_NotClose,
-    PlayerDead,
-    F_SawPlayer,
-    F_LostPlayer,
-    F_ReachPathPoint,
-    F_FinishRest,
-    F_PlayerComeClose,
-    F_PlayerFallback,
-    T_SawPlayer,
-    T_LostPlayer,
-    T_FinishReset,
+
+    M_SawPlayer,                    // 近战敌人发现玩家
+    M_LostPlayer,                   // 近战敌人丢失玩家
+    M_ReachPathPoint,               // 近战敌人到达目标路径点
+    M_FinishRest,                   // 近战敌人完成休息
+    M_CloseEnough,                  // 近战敌人靠近玩家
+    M_NotClose,                     // 近战敌人没有靠近玩家
+
+    PlayerDead,                     // 玩家死亡
+
+    F_SawPlayer,                    // 远程敌人发现玩家
+    F_LostPlayer,                   // 远程敌人丢失玩家
+    F_ReachPathPoint,               // 远程敌人到达目标路径点
+    F_FinishRest,                   // 远程敌人完成休息
+    F_PlayerComeClose,              // 远程敌人被玩家靠近
+    F_PlayerFallback,               // 远程敌人开始撤退
+
+    T_SawPlayer,                    // 炮塔发现玩家
+    T_LostPlayer,                   // 炮塔丢失玩家
+    T_FinishReset,                  // 炮塔完成重置
 }
 
 /// <summary>
@@ -33,17 +37,20 @@ public enum Transition
 public enum StateID
 {
     NullStateID = 0,
-    M_FollowingPath, 
-    M_ChasingPlayer,
-    M_Rest,
-    M_Attack,
-    F_FollowingPath,
-    F_Attack,
-    F_Melee,
-    F_Rest,
-    T_Patrol,
-    T_Attack,
-    T_Reset,
+
+    M_FollowingPath,                // 近战敌人巡逻状态 
+    M_ChasingPlayer,                // 近战敌人追击状态
+    M_Rest,                         // 近战敌人休息状态
+    M_Attack,                       // 近战敌人攻击状态
+
+    F_FollowingPath,                // 远程敌人巡逻状态
+    F_Attack,                       // 远程敌人攻击状态
+    F_Melee,                        // 远程敌人近战攻击状态
+    F_Rest,                         // 远程敌人休息状态
+
+    T_Patrol,                       // 炮塔巡逻（摇摆）状态
+    T_Attack,                       // 炮塔攻击状态
+    T_Reset,                        // 炮塔重置状态
 }
 
 /// <summary>

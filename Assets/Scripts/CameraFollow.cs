@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    private Transform target;
-    [SerializeField] Vector3 offset;
+    private Transform target;               // 跟随目标
+    [SerializeField] Vector3 offset;        // 相机与目标的位置偏差
 
     void Start()
     {

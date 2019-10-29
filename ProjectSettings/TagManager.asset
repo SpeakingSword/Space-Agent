@@ -11,6 +11,8 @@ TagManager:
   - Bullet
   - Coin
   - End
+  - onlyTrigger
+  - Start
   layers:
   - Default
   - TransparentFX
@@ -27,8 +29,8 @@ TagManager:
   - Slider
   - Bullet
   - Prop
-  - 
-  - 
+  - Coin
+  - Mark
   - 
   - 
   - 

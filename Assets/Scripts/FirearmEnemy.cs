@@ -12,23 +12,21 @@ public class FirearmEnemy : MonoBehaviour
     public LayerMask detectedLayer;             // 被探测的玩家的层
     private FSMSystem fsm;                      // 一个FSM实例
     private GameObject player;                  // 玩家实例
-    private AudioSource firearmEnemyAudio;
+    private AudioSource firearmEnemyAudio;      // 挂在该对象上的一个声源，用来播放音效
 
     [SerializeField] private float detectedRayDistance = 15.0f;             // 探测玩家层的射线长度
     [SerializeField] private float shootRate = 0.5f;                        // 射击频率
     [SerializeField] private float patrolSpeed = 10.0f;                     // 巡逻的速度
-    [SerializeField] private float runSpeed = 15.0f;                        // 追击的速度
     [SerializeField] private float jumpForce = 100.0f;                      // 跳跃用的力度
     [SerializeField] private float meleeForce = 60.0f;                      // 近战攻击的力度
     [SerializeField] private float meleeRange = 1.0f;                       // 近战攻击的距离
-    public AudioClip fireSound;
+    public AudioClip fireSound;                                             // 开火的音效
     private const float jumpRayDistance = 1.5f;                             // 探测障碍的射线长度
-    private int health = 100;
+    private int health = 100;                                               // 生命值
 
     public float DetectedRayDistance { get => detectedRayDistance; set => detectedRayDistance = value; }
     public float ShootRate { get => shootRate; set => shootRate = value; }
     public float PatrolSpeed { get => patrolSpeed; set => patrolSpeed = value; }
-    public float RunSpeed { get => runSpeed; set => runSpeed = value; }
     public float JumpForce { get => jumpForce; set => jumpForce = value; }
     public float JumpRayDistance { get { return jumpRayDistance; } }
     public float MeleeForce { get => meleeForce; set => meleeForce = value; }
@@ -53,6 +51,7 @@ public class FirearmEnemy : MonoBehaviour
         fsm.CurrentState.Reason(player, gameObject);
         fsm.CurrentState.Act(player, gameObject);
 
+        // 如果生命值小于等于0，则销毁
         if(health <= 0)
         {
             Destroy(gameObject);
@@ -61,11 +60,12 @@ public class FirearmEnemy : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // 当受到攻击时且玩家处于该敌人的后方时交换两个路径点的值
         if(collision.gameObject.tag == "Bullet")
         {
             health -= 20;
-            if(Vector2.Dot(transform.right, player.transform.position - transform.position) < 0)
+
+            // 当受到攻击时且玩家处于该敌人的后方时交换两个路径点的值（相当于该敌人转向）
+            if (Vector2.Dot(transform.right, player.transform.position - transform.position) < 0)
             {
                 Transform temp = path[0];
                 path[0] = path[1];
@@ -81,7 +81,7 @@ public class FirearmEnemy : MonoBehaviour
         {
             // 通过不断地施加力解决敌人被箱子卡住的情况
             case "Crate":
-                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(transform.right.x * 20 * Time.deltaTime, jumpForce),
+                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(transform.right.x * 50 * Time.deltaTime, jumpForce),
                                                                 ForceMode2D.Impulse);
                 break;
         }
@@ -90,14 +90,16 @@ public class FirearmEnemy : MonoBehaviour
     // 判断游戏对象是否站在地上
     public bool IsOnGround()
     {
-        Vector2 raysSartPosition = footPoint.transform.position;
-        Vector2 rayDirection = Vector2.down;
+        Vector2 raysSartPosition = footPoint.transform.position;        // 射线的起始点
+        Vector2 rayDirection = Vector2.down;                            // 射线的方向
 
-        RaycastHit2D rayHits = Physics2D.Raycast(raysSartPosition,
-                                                 rayDirection, 
-                                                 1.0f,
-                                                 groundLayer);
-        if (rayHits.collider != null)
+        RaycastHit2D rayHit = Physics2D.Raycast(raysSartPosition,
+                                                rayDirection, 
+                                                1.0f,
+                                                groundLayer);
+
+        // 如果射线探测到相应的层(属于地面的层)则返回true，否则返回false
+        if (rayHit.collider != null)
         {
             return true;
         }
@@ -135,7 +137,7 @@ public class FirearmEnemy : MonoBehaviour
 
 }
 
-// 持枪敌人巡逻类
+// 远程敌人巡逻状态类
 public class F_FollowPathState: FSMState
 {
     private int currentWayPoint;
@@ -186,56 +188,41 @@ public class F_FollowPathState: FSMState
             {
                 currentWayPoint = 0;
             }
-
-            // 转向
-            npc.transform.Rotate(new Vector3(0, 180, 0));
-            // 转换为休息状态
-            // npc.GetComponent<FirearmEnemy>().StartCoroutine(EnemyRest(npc));
         }
-        else
+
+        Debug.DrawRay(npc.GetComponent<FirearmEnemy>().footPoint.position,
+                  npc.transform.right * npc.GetComponent<FirearmEnemy>().JumpRayDistance,
+                  Color.green);
+        // 探测前方障碍的射线
+        RaycastHit2D hitObstacle = Physics2D.Raycast(npc.GetComponent<FirearmEnemy>().footPoint.position,
+                                                     npc.transform.right,
+                                                     npc.GetComponent<FirearmEnemy>().JumpRayDistance,
+                                                     1 << LayerMask.NameToLayer("Ground") | 1 << LayerMask.NameToLayer("Crate"));
+
+        // 如果探测到前方有障碍且该敌人站在地上则跳过障碍
+        if (hitObstacle.collider != null && npc.GetComponent<FirearmEnemy>().IsOnGround())
         {
-            Debug.DrawRay(npc.GetComponent<FirearmEnemy>().footPoint.position,
-                      npc.transform.right * npc.GetComponent<FirearmEnemy>().JumpRayDistance,
-                      Color.green);
-            // 探测前方障碍的射线
-            RaycastHit2D hitObstacle = Physics2D.Raycast(npc.GetComponent<FirearmEnemy>().footPoint.position,
-                                                         npc.transform.right,
-                                                         npc.GetComponent<FirearmEnemy>().JumpRayDistance,
-                                                         1 << LayerMask.NameToLayer("Ground") | 1 << LayerMask.NameToLayer("Crate"));
-
-            if (hitObstacle.collider != null && npc.GetComponent<FirearmEnemy>().IsOnGround())
-            {
-                npc.GetComponent<Rigidbody2D>().AddForce(new Vector2(npc.transform.right.x * Time.deltaTime * 5, 
-                                                                     npc.GetComponent<FirearmEnemy>().JumpForce), 
-                                                                     ForceMode2D.Impulse);
-            }
-
-            if (Vector3.Dot(waypoints[currentWayPoint].transform.position - npc.transform.position, npc.transform.right) < 0)
-            {
-                npc.transform.Rotate(new Vector3(0, 180, 0));
-            }
-
-            // 继续往路径点移动
-            if (npc.GetComponent<FirearmEnemy>().IsOnGround())
-                npc.GetComponent<Rigidbody2D>().AddForce(moveDir.normalized * npc.GetComponent<FirearmEnemy>().PatrolSpeed);
-
+            npc.GetComponent<Rigidbody2D>().AddForce(new Vector2(npc.transform.right.x * Time.deltaTime * 5, 
+                                                                 npc.GetComponent<FirearmEnemy>().JumpForce), 
+                                                                 ForceMode2D.Impulse);
         }
-    }
 
-    private IEnumerator EnemyRest(GameObject npc)
-    {
-        npc.GetComponent<FirearmEnemy>().SetTransition(Transition.F_ReachPathPoint);
-        int restTime = Random.Range(0, 5);
-        yield return new WaitForSeconds(restTime);
-        npc.transform.Rotate(new Vector3(0, 180, 0), Space.Self);
-        npc.GetComponent<FirearmEnemy>().SetTransition(Transition.F_FinishRest);
+        // 如果该敌人向前的方向与当前路径点的方向相反则转向
+        if (Vector3.Dot(waypoints[currentWayPoint].transform.position - npc.transform.position, npc.transform.right) < 0)
+        {
+            npc.transform.Rotate(new Vector3(0, 180, 0));
+        }
+
+        // 继续往路径点移动
+        if (npc.GetComponent<FirearmEnemy>().IsOnGround())
+            npc.GetComponent<Rigidbody2D>().AddForce(moveDir.normalized * npc.GetComponent<FirearmEnemy>().PatrolSpeed);
+
     }
 }
 
-// 持枪敌人攻击类
+// 远程敌人攻击状态类
 public class F_AttackState: FSMState
 {
-    bool isFirstAttack = true;
     float lastTime = 0.0f;
     float currentTime = 0.0f;
 
@@ -253,7 +240,7 @@ public class F_AttackState: FSMState
         }
 
         Debug.DrawRay(npc.transform.position, npc.transform.right * npc.GetComponent<FirearmEnemy>().DetectedRayDistance, Color.red);
-        
+        // 检测玩家的射线
         RaycastHit2D hitPlayer = Physics2D.Raycast(npc.transform.position,
                                                    npc.transform.right,
                                                    npc.GetComponent<FirearmEnemy>().DetectedRayDistance,
@@ -262,9 +249,8 @@ public class F_AttackState: FSMState
         float escapeInY = Mathf.Abs(player.transform.position.y - npc.transform.position.y);
         float escapeInX = Mathf.Abs(player.transform.position.x - npc.transform.position.x);
 
-        // 第一个括号内的条件防止玩家跳到敌人头顶而敌人却因此失去目标
-        // 第二个条件是玩家在水平方向上离得足够远才能使敌人失去目标
-        if ((hitPlayer.collider == null && escapeInY > 4) || escapeInX > 45)
+        // 当射线没有探测到玩家且玩家在垂直方向上离得足够远 或者 在水平方向上离得足够远 则 该敌人确认为失去目标
+        if ((hitPlayer.collider == null && escapeInY > 8) || escapeInX > 45)
         {
             // 转换为巡逻状态
             npc.GetComponent<FirearmEnemy>().SetTransition(Transition.F_LostPlayer);
@@ -280,11 +266,12 @@ public class F_AttackState: FSMState
     public override void Act(GameObject player, GameObject npc)
     {
         // 开始发射子弹，有发射频率
-        
         currentTime = Time.time;
         if ((currentTime - lastTime) > npc.GetComponent<FirearmEnemy>().ShootRate)
         {
+            // 播放开火音效
             npc.GetComponent<FirearmEnemy>().FirearmEnemyAudio.PlayOneShot(npc.GetComponent<FirearmEnemy>().fireSound, 0.2f);
+            // 生成子弹实例
             Object.Instantiate(npc.GetComponent<FirearmEnemy>().bulletPrefab,
                                npc.GetComponent<FirearmEnemy>().firePoint.position,
                                npc.GetComponent<FirearmEnemy>().firePoint.rotation);
@@ -301,12 +288,11 @@ public class F_AttackState: FSMState
 
     public override void DoBeforeEntering()
     {
-        isFirstAttack = true;
         lastTime = Time.time;
     }
 }
 
-// 持枪敌人近战攻击类
+// 远程敌人近战攻击状态类
 public class F_MeleeState: FSMState
 {
     bool isFirstAttack = true;
@@ -329,12 +315,13 @@ public class F_MeleeState: FSMState
 
     public override void Act(GameObject player, GameObject npc)
     {
+        // 在近战攻击状态时如果玩家在敌人后方，敌人需转向
         if (Vector2.Dot(player.transform.position - npc.transform.position, npc.transform.right) < 0)
         {
-            npc.transform.Rotate(new Vector3(0, 180, 0), Space.Self);
+            npc.transform.Rotate(new Vector3(0, 180, 0));
         }
 
-        // 开始攻击，有攻击频率
+        // 开始攻击，如果是第一次攻击则直接攻击，之后的攻击按攻击频率攻击
         if (isFirstAttack)
         {
             player.GetComponent<Rigidbody2D>().AddForce(new Vector2(player.transform.position.x - npc.transform.position.x, 1).normalized
@@ -355,6 +342,7 @@ public class F_MeleeState: FSMState
             }
         }
 
+        // 如果玩家死亡则转换为巡逻状态
         if (player.GetComponent<PlayerController>().PlayerHealth <= 0)
         {
             npc.GetComponent<FirearmEnemy>().SetTransition(Transition.PlayerDead);
@@ -368,7 +356,7 @@ public class F_MeleeState: FSMState
     }
 }
 
-// 持枪敌人休息类
+// 远程敌人休息状态类 (暂不做处理)
 public class F_RestState: FSMState
 {
     public F_RestState()
