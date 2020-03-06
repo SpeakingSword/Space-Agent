@@ -58,6 +58,7 @@ public class TurretEnemy : MonoBehaviour
         T_AttackState attack = new T_AttackState();
         attack.AddTransition(Transition.T_LostPlayer, StateID.T_Reset);
         attack.AddTransition(Transition.PlayerDead, StateID.T_Reset);
+        attack.AddTransition(Transition.T_SawPlayer, StateID.T_Attack);
 
         T_ResetState reset = new T_ResetState();
         reset.AddTransition(Transition.T_SawPlayer, StateID.T_Attack);
