@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private float bulletForce = 10.0f;             // 子弹击中力度
+    //[SerializeField] private float bulletForce = 10.0f;             // 子弹击中力度
     [SerializeField] private float speed = 20f;                     // 子弹飞行速度
     public Rigidbody2D rb;
 
